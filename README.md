@@ -2,12 +2,12 @@
 
 
 
-1 - clonar o repositorio
-2 - usando um terminal, entre na pasta do projeto e depois digite o comando composer install (instala as dependências que não vão com o gitignore)
-3 - digite o comando cp .env.example .env (copia o arquivo env)
-4 - php artisan key:generate (gera api de criptografia)
-5 - Importe o banco de dados (recomendo usar o phpmyadmin, crie um banco e rode o mysql lá)
-6 - configure o arquivo .env com os dados do banco de dados
+1 - clonar o repositorio<br>
+2 - usando um terminal, entre na pasta do projeto e depois digite o comando composer install (instala as dependências que não vão com o gitignore)<br>
+3 - digite o comando cp .env.example .env (copia o arquivo env)<br>
+4 - php artisan key:generate (gera api de criptografia)<br>
+5 - Importe o banco de dados (recomendo usar o phpmyadmin, crie um banco e rode o mysql lá)<br>
+6 - configure o arquivo .env com os dados do banco de dados<br>
 
 Funciona!
 
