@@ -1,3 +1,22 @@
+<h1>Passo a passo para configurar projeto laravel</h1>
+
+
+
+1 - clonar o repositorio<br>
+2 - usando um terminal, entre na pasta do projeto e depois digite o comando composer install (instala as dependências que não vão com o gitignore)<br>
+3 - digite o comando cp .env.example .env (copia o arquivo env)<br>
+4 - php artisan key:generate (gera api de criptografia)<br>
+5 - Importe o banco de dados (recomendo usar o phpmyadmin, crie um banco e rode o mysql lá)<br>
+6 - configure o arquivo .env com os dados do banco de dados<br>
+
+Funciona!
+
+Ao terminar de corrigir, exporte no phpmyadmin a base, salvando na pasta e envie os files por git.
+
+Referência https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/	
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
