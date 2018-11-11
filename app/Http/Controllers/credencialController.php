@@ -10,25 +10,6 @@ use App\Cliente as Cliente;
 
 class CredencialController extends Controller
 {
-    // public function login(Request $s){
-    //     if ($s->isMethod('get')){
-    //         return view('login');
-    //     }
-    //     else 
-    //     {
-    //         if ($s->input('username') == "dinara"  && $s->input('senha') == "oi"){
-    //             return view('login', ['respostalogin' => "login correto"]);
-    //             //opções de redirecionamento
-    //             //return redirect()->route('login_ok');
-    //             //return redirect('/adivinha');
-                
-    //         }
-    //         else {
-    //             return view('login', ['respostalogin' => "login incorreto"]);
-    //             //return redirect()->route('bird');
-    //             }
-    //     }
-    // }
 
     public function login(Request $s){
         if ($s->isMethod('get')){
