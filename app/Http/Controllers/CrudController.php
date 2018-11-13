@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\http\request;
 use Illuminate\Support\Facades\DB;
 use App\Produto as Produto;
+use App\Foto as Foto;
 
 class CrudController extends Controller
 {
@@ -30,12 +31,18 @@ class CrudController extends Controller
         if (isset($r->destaque)){
             $produto->destaqueProduto = true;
         }
-        $produto->fotos()->localFoto = "algo";
+
+        
+
+        //$produto->fotos()->localFoto = "algo";
 
         $produto->save();
 
+        $foto = new Foto;
+        $foto->localFoto = "string teste";
+        $foto->Produto_idProduto = $produto->idProduto;
+        $foto->save();
 
-        //$produto->fotos()->saveMany("salvou alguma coisa aqui");
 
         return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
     }
