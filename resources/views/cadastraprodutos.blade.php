@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.baseadm')
 
 @section('title', 'A Cabeça do Buda - Cadastro')
 
