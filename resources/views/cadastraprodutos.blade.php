@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="loginArea col-12 col-sm-12 col-md-12 col-lg-6 offset-lg-4 col-xl-6 mt-5 mb-5">
-                <form class="needs-validation" action="/acdb/public/cadastraprodutos" method="POST" novalidate>
+                <form class="needs-validation" action="/acdb/public/cadastraprodutos" method="POST" enctype="multipart/form-data" novalidate>
                 {!! csrf_field()!!}
                     <div class="form-row">
                         <div class="form-group col-md-6">

@@ -31,19 +31,27 @@ class CrudController extends Controller
         if (isset($r->destaque)){
             $produto->destaqueProduto = true;
         }
-
-        
-
-        //$produto->fotos()->localFoto = "algo";
-
         $produto->save();
 
+    //subindo a foto e colocando em uma tabela estrangeira
+    $nameFile = null;
+    if ($r->hasFile('uploadFoto') && $r->file('uploadFoto')->isValid()) {
+        $name = $produto->idProduto."_".date("Ymd");
+        $extension = $r->uploadFoto->extension();
+        $nameFile = "{$name}.{$extension}";
+        $upload = $r->file('uploadFoto')->move("uploadsprodutos", $nameFile);
         $foto = new Foto;
-        $foto->localFoto = "string teste";
         $foto->Produto_idProduto = $produto->idProduto;
+        $foto->localFoto = "uploadsprodutos/".$nameFile;
         $foto->save();
-
-
+        if ( !$upload )
+            return redirect()
+                        ->back()
+                        ->with('error', 'Falha ao fazer upload')
+                        ->withInput();
+    }
+    
+        
         return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
     }
     
