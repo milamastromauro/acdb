@@ -1,0 +1,66 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-repeat: repeat;
+  font-family: 'Oswald', sans-serif;
+}
+
+p{
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+.fundoLogin{
+  background: url("../../public/imagens/login/fundo.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  /*height: 75vh;*/
+  overflow: hidden;
+}
+
+.loginArea{
+  background-color: rgba(248, 249, 250, 0.9);
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+ .retorno{
+  margin-top: 10px;
+}
+
+/* ADAPTAÇÃO RESPONSIVA */
+
+/*extra small*/
+@media only screen and (max-width : 768px){
+
+  /* Login */
+  .fundoLogin{
+    height:58vh;
+  }
+
+.inputUsuario input{
+  width: 45vw;
+}
+
+.botoesLogin button{
+  background-color: black;
+  color: #f8f9fa;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 0.2em;
+}
+
+/*medium*/
+
+@media only screen and (max-width : 991px){
+
+}
