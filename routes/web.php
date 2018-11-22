@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/cadastro', 'CredencialController@cadastro');
@@ -23,3 +23,9 @@ Route::post('/login', 'CredencialController@login');
 
 Route::get('/cadastraprodutos', 'CrudController@cadastraProdutos');
 Route::post('/cadastraprodutos', 'CrudController@cadastraProdutos');
+
+Route::view('/checkout', 'checkout');
+Route::view('/categoria', 'categoria');
+Route::view('/faq', 'faq');
+Route::view('/produto', 'produto');
+Route::view('/contato', 'contato');
