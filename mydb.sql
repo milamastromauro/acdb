@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2018 at 01:18 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: 27-Nov-2018 às 15:32
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrinho`
+-- Estrutura da tabela `carrinho`
 --
 
 CREATE TABLE `carrinho` (
@@ -37,7 +37,7 @@ CREATE TABLE `carrinho` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Estrutura da tabela `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -48,7 +48,7 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cidade`
+-- Estrutura da tabela `cidade`
 --
 
 CREATE TABLE `cidade` (
@@ -60,7 +60,7 @@ CREATE TABLE `cidade` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estrutura da tabela `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -68,9 +68,9 @@ CREATE TABLE `cliente` (
   `nomeCliente` varchar(45) DEFAULT NULL,
   `sobrenomeCliente` varchar(45) DEFAULT NULL,
   `emailCliente` varchar(45) DEFAULT NULL,
-  `senhaCliente` varchar(45) DEFAULT NULL,
-  `pessoajuridicaCliente` tinyint(4) DEFAULT '0',
-  `cpfCliente` int(11) DEFAULT NULL,
+  `senhaCliente` varchar(255) DEFAULT NULL,
+  `pessoajuridicaCliente` tinyint(1) DEFAULT '0',
+  `cpfCliente` varchar(45) DEFAULT NULL,
   `cnpjCliente` varchar(45) DEFAULT NULL,
   `fotoCliente` varchar(150) DEFAULT NULL,
   `dataCriacaoCliente` date DEFAULT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cliente`
+-- Extraindo dados da tabela `cliente`
 --
 
 INSERT INTO `cliente` (`idCliente`, `nomeCliente`, `sobrenomeCliente`, `emailCliente`, `senhaCliente`, `pessoajuridicaCliente`, `cpfCliente`, `cnpjCliente`, `fotoCliente`, `dataCriacaoCliente`, `dataAlteracaoCliente`) VALUES
@@ -88,7 +88,7 @@ INSERT INTO `cliente` (`idCliente`, `nomeCliente`, `sobrenomeCliente`, `emailCli
 -- --------------------------------------------------------
 
 --
--- Table structure for table `endereco`
+-- Estrutura da tabela `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -101,7 +101,7 @@ CREATE TABLE `endereco` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entrega`
+-- Estrutura da tabela `entrega`
 --
 
 CREATE TABLE `entrega` (
@@ -114,7 +114,7 @@ CREATE TABLE `entrega` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estado`
+-- Estrutura da tabela `estado`
 --
 
 CREATE TABLE `estado` (
@@ -125,7 +125,7 @@ CREATE TABLE `estado` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto`
+-- Estrutura da tabela `foto`
 --
 
 CREATE TABLE `foto` (
@@ -135,7 +135,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `foto`
+-- Extraindo dados da tabela `foto`
 --
 
 INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
@@ -160,7 +160,7 @@ INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item`
+-- Estrutura da tabela `item`
 --
 
 CREATE TABLE `item` (
@@ -172,7 +172,7 @@ CREATE TABLE `item` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagamento`
+-- Estrutura da tabela `pagamento`
 --
 
 CREATE TABLE `pagamento` (
@@ -183,7 +183,7 @@ CREATE TABLE `pagamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedido`
+-- Estrutura da tabela `pedido`
 --
 
 CREATE TABLE `pedido` (
@@ -199,7 +199,7 @@ CREATE TABLE `pedido` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produto`
+-- Estrutura da tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -218,7 +218,7 @@ CREATE TABLE `produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `produto`
+-- Extraindo dados da tabela `produto`
 --
 
 INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
@@ -228,7 +228,7 @@ INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoquePr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produtocategoria`
+-- Estrutura da tabela `produtocategoria`
 --
 
 CREATE TABLE `produtocategoria` (
@@ -239,7 +239,7 @@ CREATE TABLE `produtocategoria` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `propriedades`
+-- Estrutura da tabela `propriedades`
 --
 
 CREATE TABLE `propriedades` (
@@ -251,7 +251,7 @@ CREATE TABLE `propriedades` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statuspedido`
+-- Estrutura da tabela `statuspedido`
 --
 
 CREATE TABLE `statuspedido` (
