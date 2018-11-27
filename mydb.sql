@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Nov-2018 às 15:32
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.2.12
+-- Generation Time: Nov 27, 2018 at 11:12 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `carrinho`
+-- Table structure for table `carrinho`
 --
 
 CREATE TABLE `carrinho` (
@@ -37,7 +37,7 @@ CREATE TABLE `carrinho` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categoria`
+-- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -48,7 +48,7 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cidade`
+-- Table structure for table `cidade`
 --
 
 CREATE TABLE `cidade` (
@@ -60,7 +60,7 @@ CREATE TABLE `cidade` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cliente`
+-- Table structure for table `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -74,21 +74,23 @@ CREATE TABLE `cliente` (
   `cnpjCliente` varchar(45) DEFAULT NULL,
   `fotoCliente` varchar(150) DEFAULT NULL,
   `dataCriacaoCliente` date DEFAULT NULL,
-  `dataAlteracaoCliente` date DEFAULT NULL
+  `dataAlteracaoCliente` date DEFAULT NULL,
+  `adminCliente` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `cliente`
+-- Dumping data for table `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `nomeCliente`, `sobrenomeCliente`, `emailCliente`, `senhaCliente`, `pessoajuridicaCliente`, `cpfCliente`, `cnpjCliente`, `fotoCliente`, `dataCriacaoCliente`, `dataAlteracaoCliente`) VALUES
-(1, 'Didi', NULL, 'dinara.lima@gmail.com', 'meo', 0, NULL, NULL, NULL, '2018-11-04', NULL),
-(2, 'didilima', NULL, 'didilima@gmail.com', 'didilima', 0, NULL, NULL, NULL, '2018-11-04', NULL);
+INSERT INTO `cliente` (`idCliente`, `nomeCliente`, `sobrenomeCliente`, `emailCliente`, `senhaCliente`, `pessoajuridicaCliente`, `cpfCliente`, `cnpjCliente`, `fotoCliente`, `dataCriacaoCliente`, `dataAlteracaoCliente`, `adminCliente`) VALUES
+(1, 'Didi', NULL, 'dinara.lima@gmail.com', 'meo', 0, NULL, NULL, NULL, '2018-11-04', NULL, 0),
+(2, 'didilima', NULL, 'didilima@gmail.com', 'didilima', 0, NULL, NULL, NULL, '2018-11-04', NULL, 0),
+(3, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco`
+-- Table structure for table `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -101,7 +103,7 @@ CREATE TABLE `endereco` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `entrega`
+-- Table structure for table `entrega`
 --
 
 CREATE TABLE `entrega` (
@@ -114,7 +116,7 @@ CREATE TABLE `entrega` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estado`
+-- Table structure for table `estado`
 --
 
 CREATE TABLE `estado` (
@@ -125,7 +127,7 @@ CREATE TABLE `estado` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `foto`
+-- Table structure for table `foto`
 --
 
 CREATE TABLE `foto` (
@@ -135,7 +137,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `foto`
+-- Dumping data for table `foto`
 --
 
 INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
@@ -160,7 +162,7 @@ INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `item`
+-- Table structure for table `item`
 --
 
 CREATE TABLE `item` (
@@ -172,7 +174,7 @@ CREATE TABLE `item` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pagamento`
+-- Table structure for table `pagamento`
 --
 
 CREATE TABLE `pagamento` (
@@ -183,7 +185,7 @@ CREATE TABLE `pagamento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pedido`
+-- Table structure for table `pedido`
 --
 
 CREATE TABLE `pedido` (
@@ -199,7 +201,7 @@ CREATE TABLE `pedido` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Table structure for table `produto`
 --
 
 CREATE TABLE `produto` (
@@ -218,7 +220,7 @@ CREATE TABLE `produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `produto`
+-- Dumping data for table `produto`
 --
 
 INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
@@ -228,7 +230,7 @@ INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoquePr
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtocategoria`
+-- Table structure for table `produtocategoria`
 --
 
 CREATE TABLE `produtocategoria` (
@@ -239,7 +241,7 @@ CREATE TABLE `produtocategoria` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `propriedades`
+-- Table structure for table `propriedades`
 --
 
 CREATE TABLE `propriedades` (
@@ -251,7 +253,7 @@ CREATE TABLE `propriedades` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `statuspedido`
+-- Table structure for table `statuspedido`
 --
 
 CREATE TABLE `statuspedido` (
@@ -355,7 +357,7 @@ ALTER TABLE `cidade`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `endereco`
