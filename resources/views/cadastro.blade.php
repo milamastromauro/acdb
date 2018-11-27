@@ -5,49 +5,92 @@
 @section('title', 'A Cabeça do Buda - Cadastro')
 
 @section('content')
-      
+
 <section class="container-fluid fundoLogin">
 	  <div class="container">
 	    <div class="row">
         <div class="loginArea col-12 col-sm-12 col-md-12 col-lg-6 offset-lg-4 col-xl-6 mt-5 mb-5">
+          @if (isset($errors) && count($errors) > 0)
+            <div class="alert alert-danger">
+              <strong>Xi, Budinha! Seu cadastro deu ruim</strong>
+              <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
                 <form class="needs-validation" action="/acdb/public/cadastro" method="POST" novalidate>
                 {!! csrf_field()!!}
 				  <div class="form-row">
 				    <div class="form-group col-md-6">
 				      <label for="registroNome">Nome</label>
-				      <input type="text" class="form-control" id="registroNome" name="nome" placeholder="Informe seu nome completo" required>
+				      <input type="text" class="form-control" id="registroNome" name="nome" placeholder="Nome" required>
 							<div class="invalid-feedback">
 			          campo obrigatório
-                    </div>         
+                    </div>
 				    </div>
+
+  				    <div class="form-group col-md-6">
+  				      <label for="registroSobrenome">Sobrenome</label>
+  				      <input type="text" class="form-control" id="registroSobrenome" name="sobrenome" placeholder="Sobrenome" required>
+  							<div class="invalid-feedback">
+  			          campo obrigatório
+                      </div>
+  				    </div>
+
+    				    <div class="form-group col-md-3">
+    				      <label for="cpfcnpj">CPF/CNPJ</label>
+    				      <select class="form-control" id="cpfcnpj" name="cpfcnpj">
+                  <option selected name="pessoafisicaCliente" value="0">CPF</option>
+                  <option name="pessoajuridicaCliente" value="1">CNPJ</option>
+                  </select>
+    							<div class="invalid-feedback">
+    			          campo obrigatório
+                  </div>
+                </div>
+
+                <div class="form-group col-md-9">
+      				      <label for="cpf_cnpj">CPF/CNPJ</label>
+      				      <input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" placeholder="CPF/CNPJ (somente números)" required>
+      							<div class="invalid-feedback">
+      			          campo obrigatório
+                          </div>
+      				    </div>
+
+
+
 						<div class="form-group col-md-6">
 				      <label for="registroEmail">E-mail</label>
-				      <input type="email" class="form-control" id="registroEmail" name="email" placeholder="E-mail" required>
+				      <input type="email" class="form-control" id="registroEmail" name="emailCliente" placeholder="E-mail" required>
 							<div class="invalid-feedback">
 			          campo obrigatório
 			        </div>
 				    </div>
 				    <div class="form-group col-md-6">
 				      <label for="registroSenha">Senha</label>
-				      <input type="password" class="form-control" id="registroSenha" name="senha" placeholder="Crie uma senha" required>
+				      <input type="password" class="form-control" id="registroSenha" name="senha" placeholder="Mínimo de 8 dígitos" required>
 				    </div>
 						<div class="form-group col-md-6">
 				      <label for="registroSenhaConf">Confirme sua Senha</label>
-				      <input type="password" class="form-control required" id="registroSenhaConf" name="confirmar-senha" placeholder="Digite novamente sua senha" required>
-							<div class="invalid-feedback">
+				      <input type="password" class="form-control required" id="registroSenhaConf" name="senha_confirmation" placeholder="Digite novamente sua senha" required>
+              @isset($msg_senha)
+              {{  $msg_senha  }}
+              @endisset
+              <div class="invalid-feedback">
 			          campo obrigatório
 			        </div>
 				    </div>
 
-				  </div>
-				  <div class="form-group">
+				  <!-- </div> -->
+				  <div class="form-group col-md-6">
 				    <label for="endereco">Endereço</label>
 				    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço" required>
 						<div class="invalid-feedback">
 							campo obrigatório
 						</div>
 				  </div>
-				  <div class="form-group">
+				  <div class="form-group col-md-6">
 				    <label for="complemento">Complemento</label>
 				    <input type="text" class="form-control" id="inputAddress2" name="complemento" placeholder="Complemento">
 						<div class="invalid-feedback">
@@ -127,7 +170,7 @@
         @endisset</div>
     </div>
   </div>
-  
+
   </div>
 </section>
 @endsection
