@@ -26,9 +26,9 @@
         @isset($respostalogin)
             <br>
             <div class="alert alert-primary" role="alert">
-            {{$respostalogin}}
+            {{  $respostalogin  }}
             </div>
         @endisset
     </div>
-  
+
 @endsection

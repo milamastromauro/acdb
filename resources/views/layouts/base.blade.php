@@ -61,9 +61,19 @@
                             </form>
                     </div>
                     <!-- Área de login -->
-                    <div class="cart-area">
-                            <a href="checkout.html"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                    @if(isset($nomeCliente))
+                    <div id="logado" class="cart-area">
+                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ $nomeCliente }}</span></a>
                     </div>
+                    <div id="logout" class="cart-area">
+                      <a href="" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>
+                    </div>
+                      @else
+                      <div class="cart-area">
+                      <a href="checkout.html"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                      </div>
+                      @endif
+
                     <!-- Carrinho -->
                     <div class="cart-area">
                             <a href="checkout.html"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>3</span></a>

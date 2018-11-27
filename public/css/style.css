@@ -25,6 +25,10 @@ p{
   width: 180px;
 }
 
+#logado .logado  {
+  width: 160px;
+}
+
 .conta i.fas.fa-user, .carrinho i.fas.fa-shopping-cart{
   font-size: 26px;
 }
