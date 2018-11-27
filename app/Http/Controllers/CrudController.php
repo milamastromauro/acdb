@@ -22,9 +22,7 @@ class CrudController extends Controller
         $produto->skuProduto = $r->inputSku;
         $produto->valorProduto = $r->inputPreco;
         $produto->valorDescontoProduto = $r->inputPrecoDesconto;
-        $produto->descricaoProduto = $r->inputDescricao;
-
-        
+        $produto->descricaoProduto = $r->inputDescricao;   
 
         $produto->dataCriacaoProduto = date("Y-m-d H:i:s");
         $produto->dataAlteracaoProduto = date("Y-m-d H:i:s");
@@ -50,9 +48,33 @@ class CrudController extends Controller
                         ->with('error', 'Falha ao fazer upload')
                         ->withInput();
     }
-    
-        
+     
         return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
+    }
+
+    public function listaProdutos(Request $r){
+        if ($r->isMethod('get')){
+            //modifica para também pegar por categoria
+            //precisa colocar a categoria no cadastro
+            //cria classe
+            //procura exemplo que passa parametro da roda - id
+            //faz a query e entrega array filtrada pra view
+            $produtos = Produto::all();
+            foreach($produtos as $produto){
+                $fotos = $produto->Fotos()->get();
+                foreach($fotos as $foto){
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto,
+                    //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
+                    'foto'=>$foto->localFoto);
+                }
+            }
+        }
+
+            return view('categoria',
+            ['produtos'=>$lista]);
+            //var_dump($lista);
     }
     
 }

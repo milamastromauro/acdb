@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2018 at 04:34 AM
+-- Generation Time: Nov 27, 2018 at 01:18 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -134,6 +134,29 @@ CREATE TABLE `foto` (
   `Produto_idProduto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `foto`
+--
+
+INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
+(1, 'teste', 18),
+(2, 'teste', 19),
+(3, 'teste', 20),
+(4, 'teste', 21),
+(5, 'teste', 22),
+(6, '/acdb/public/uploads/3120181118.png', 31),
+(7, '/acdb/public/uploads/32_20181118.png', 32),
+(8, '/acdb/public/uploads/33_20181118.png', 33),
+(9, '/acdb/public/uploads/34_20181118.png', 34),
+(10, '/acdb/public/uploads/35_20181118.png', 35),
+(11, '/acdb/public/uploads/36_20181118.png', 36),
+(12, 'uploads37_20181118.png', 37),
+(13, 'uploads/38_20181118.png', 38),
+(14, 'uploads/39_20181118.png', 39),
+(15, 'uploadsprodutos40_20181118.png', 40),
+(16, 'uploadsprodutos/41_20181127.jpeg', 41),
+(17, 'uploadsprodutos/42_20181127.jpeg', 42);
+
 -- --------------------------------------------------------
 
 --
@@ -193,6 +216,14 @@ CREATE TABLE `produto` (
   `dataAlteracaoProduto` date DEFAULT NULL,
   `Produtocol` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `produto`
+--
+
+INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
+(41, 1, 'Vestido Extreme', 10, '222', 50, 40, 'Descrição da camiseta extreme', NULL, '2018-11-27', '2018-11-27', NULL),
+(42, 1, 'Camiseta do Buda', 2, '555', 55, NULL, 'Descrição da camiseta do buda', NULL, '2018-11-27', '2018-11-27', NULL);
 
 -- --------------------------------------------------------
 
@@ -348,7 +379,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pagamento`
@@ -366,7 +397,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `statuspedido`

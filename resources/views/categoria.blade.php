@@ -56,13 +56,38 @@
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
                       <div class="row">
+                      @forelse ($produtos as $produto)
+                        <!-- inicio prod -->
+                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                <div class="single-product-wrapper">
+                                    <!-- Imagem do produto -->
+                                    <div class="product-img">
+									<img src="{{$produto['foto']}}" alt="">
+                                    </div>
+                                    <!-- Descricao -->
+                                    <div class="descricao mt-1">
+                                        <a href="#">
+                                            <h6>{{$produto['produto_nome']}}</h6>
+                                        </a>
+                                        <p class="preco">R${{$produto['produto_valor']}},00</p>
+                                          <!-- Comprar -->
+                                          <div class="add-to-cart-btn">
+                                              <a href="checkout?{{$produto['produto_id']}}" class="btn comprar">Comprar</a>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+							<!-- fim produto -->
+                      @empty
+                        sem
+                    @endforelse
 
                             <!-- inicio prod -->
                             <div class="col-12 col-sm-6 col-lg-4 mb-4">
                                 <div class="single-product-wrapper">
                                     <!-- Imagem do produto -->
                                     <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/body_produto18_zoom.jpg') }}" alt="">
+									<img src="{{ asset('/imagens/produtos-categoria/body_produto18_zoom.jpg') }}" alt="">
                                     </div>
                                     <!-- Descricao -->
                                     <div class="descricao mt-1">
