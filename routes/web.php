@@ -31,3 +31,6 @@ Route::view('/checkout', 'checkout');
 Route::view('/faq', 'faq');
 Route::view('/produto', 'produto');
 Route::view('/contato', 'contato');
+
+Route::get('/carrinho/{item}', 'CarrinhoController@AdicionaCarrinho');
+Route::get('/vercarrinho', 'CarrinhoController@VisualizaCarrinho');

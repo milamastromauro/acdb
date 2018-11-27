@@ -72,7 +72,7 @@
                                         <p class="preco">R${{$produto['produto_valor']}},00</p>
                                           <!-- Comprar -->
                                           <div class="add-to-cart-btn">
-                                              <a href="checkout?{{$produto['produto_id']}}" class="btn comprar">Comprar</a>
+                                              <a href="carrinho/{{$produto['produto_id']}}" class="btn comprar">Comprar</a>
                                           </div>
                                     </div>
                                 </div>
