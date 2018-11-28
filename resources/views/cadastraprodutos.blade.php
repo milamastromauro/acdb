@@ -57,7 +57,7 @@
                 </form>
                 @endisset
                 @isset($produto)
-                <form class="needs-validation" action="/acdb/public/cadastraprodutos" method="POST" enctype="multipart/form-data" novalidate>
+                <form class="needs-validation" action="/acdb/public/cadastraprodutos/{{$produto['produto_id']}}" method="POST" enctype="multipart/form-data" novalidate>
                 {!! csrf_field()!!}
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -66,22 +66,22 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEstoque">Estoque</label>
-                            <input type="text" class="form-control" id="inputEstoque" name="inputEstoque" placeholder="Quantidade em estoque">
+                            <input type="text" class="form-control" id="inputEstoque" name="inputEstoque" placeholder="Quantidade em estoque" value="{{ $produto['produto_estoque'] }}">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputPreco">Preço</label>
-                            <input type="text" class="form-control" id="inputPreco" name="inputPreco" placeholder="Preço do produto">
+                            <input type="text" class="form-control" id="inputPreco" name="inputPreco" placeholder="Preço do produto" value="{{ $produto['produto_valor'] }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPrecoDesconto">Preço com desconto</label>
-                            <input type="text" class="form-control" id="inputPrecoDesconto" name="inputPrecoDesconto" placeholder="Preço do produto com desconto">
+                            <input type="text" class="form-control" id="inputPrecoDesconto" name="inputPrecoDesconto" placeholder="Preço do produto com desconto" value="{{ $produto['produto_desconto'] }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputDescricao">Descrição</label>
-                        <input type="text" class="form-control" id="inputDescricao" name="inputDescricao" placeholder="Descrição do produto">
+                        <input type="text" class="form-control" id="inputDescricao" name="inputDescricao" placeholder="Descrição do produto" value="{{ $produto['produto_descricao'] }}">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -90,18 +90,18 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputSku">SKU</label>
-                            <input type="text" class="form-control" id="inputSku" name="inputSku" placeholder="SKU do produto">
+                            <input type="text" class="form-control" id="inputSku" name="inputSku" placeholder="SKU do produto" value="{{ $produto['produto_sku'] }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck" name="destaque">
+                        <input class="form-check-input" type="checkbox" @isset($produto['produto_destaque']) checked @endisset id="gridCheck" name="destaque">
                         <label class="form-check-label" for="gridCheck">
                             Produto destaque?
                         </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary">Alterar</button>
                 </form>
                 @endisset
             </div>

@@ -27,8 +27,14 @@ class CrudController extends Controller
                         $lista = array('produto_id'=>$produto->idProduto,
                         'produto_nome'=>$produto->nomeProduto,
                         'produto_valor'=>$produto->valorProduto,
+                        'produto_desconto'=>$produto->valorDescontoProduto,
+                        'produto_descricao'=>$produto->descricaoProduto,
+                        'produto_destaque'=>$produto->destaqueProduto,
+                        'produto_estoque'=>$produto->estoqueProduto,
+                        'produto_sku'=>$produto->skuProduto,
                         //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
                         'foto'=>$foto->localFoto);
+                        
                     }
                     return view('cadastraProdutos',
                     ['produto' => $lista ]);
@@ -49,8 +55,7 @@ class CrudController extends Controller
         $produto->valorProduto = $r->inputPreco;
         $produto->valorDescontoProduto = $r->inputPrecoDesconto;
         $produto->descricaoProduto = $r->inputDescricao;   
-
-        $produto->dataCriacaoProduto = date("Y-m-d H:i:s");
+        if ($id==1) $produto->dataCriacaoProduto = date("Y-m-d H:i:s");
         $produto->dataAlteracaoProduto = date("Y-m-d H:i:s");
         if (isset($r->destaque)){
             $produto->destaqueProduto = true;
@@ -95,39 +100,46 @@ class CrudController extends Controller
             //faz a query e entrega array filtrada pra view
             $produtos = Produto::all();
             foreach($produtos as $produto){
+                $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
                 $fotos = $produto->Fotos()->get();
                 foreach($fotos as $foto){
-                    $lista[] = array('produto_id'=>$produto->idProduto,
-                    'produto_nome'=>$produto->nomeProduto,
-                    'produto_valor'=>$produto->valorProduto,
+                    array_push($lista,['foto'=>$foto->localFoto]);
                     //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
-                    'foto'=>$foto->localFoto);
                 }
             }
         }
 
             return view('categoria',
             ['produtos'=>$lista]);
-            //var_dump($lista);
+            // var_dump($lista);
     }
 
     public function listaProdutosAdm(Request $r){
+        $lista = [];
         if ($r->isMethod('get')){
             $produtos = Produto::all();
             foreach($produtos as $produto){
                 $fotos = $produto->Fotos()->get();
-                foreach($fotos as $foto){
-                    $lista[] = array('produto_id'=>$produto->idProduto,
+                if (isset($fotos)){
+                    foreach($fotos as $foto){
+                        $lista[] = array('produto_id'=>$produto->idProduto,
                     'produto_nome'=>$produto->nomeProduto,
                     'produto_valor'=>$produto->valorProduto,
-                    //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
                     'foto'=>$foto->localFoto);
+                    }
                 }
+                
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
+                
             }
         }
         return view('listaprodutos',
             ['produtos'=>$lista]);
-            //var_dump($lista);
+            //  var_dump($lista);
     }
     
 }

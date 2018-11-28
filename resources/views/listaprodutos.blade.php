@@ -25,7 +25,10 @@
                         <td>{{ $produto['produto_id'] }}</td>
                         <td>{{ $produto['produto_nome'] }}</td>
                         <td>{{ $produto['produto_valor'] }}</td>
-                        <td><img src="{{$produto['foto']}}" alt="" width="50px"> </td>
+                        <td>@isset($produto['foto']) 
+                        <img src="{{$produto['foto']}}" alt="" width="50px"> 
+                        @endisset
+                        </td>
                         <td><a class='btn pull-right btn-info' href='cadastraprodutos/{{ $produto['produto_id'] }}' role='button'><i class='fas fa-pencil-alt'></i></a></td>     
                         </tr>
                     @empty

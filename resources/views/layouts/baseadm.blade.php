@@ -31,9 +31,9 @@
                     Produtos
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="cadastraprodutos">Criar Novo</a>
+                    <a class="dropdown-item" href="http://localhost/acdb/public/cadastraprodutos">Criar Novo</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="listaprodutos">Ver lista completa</a>
+                    <a class="dropdown-item" href="http://localhost/acdb/public/listaprodutos">Ver lista completa</a>
                 </div>
                 </li>
                     <li class="nav-item">
