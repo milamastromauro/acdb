@@ -32,7 +32,7 @@ class CredencialController extends Controller
             }
 
             if($usuario->senhaCliente == password_verify($s->input('senha'), $usuario->senhaCliente)){
-                return view('home', ['respostalogin' => "login correto", 'nomeCliente' => $nomeCliente]);
+                return view('login', ['respostalogin' => "login correto", 'nomeCliente' => $nomeCliente]);
             }
             else return view('login', ['respostalogin' => "login incorreto"]);
         }

@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>@yield('title')</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- arquivos para o bootstrap -->
@@ -26,11 +26,15 @@
             </button>
             <div class="collapse navbar-collapse ml-5" id="conteudoMenu">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="index.html">Índice do admin</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="categoria.html">Produtos</a>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                    Produtos
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="cadastraprodutos">Criar Novo</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="listaprodutos">Ver lista completa</a>
+                </div>
                 </li>
                     <li class="nav-item">
                 <a class="nav-link" href="categoria.html">Clientes</a>
@@ -43,22 +47,15 @@
             <!-- Seção da direita -->
             <div class="header-meta d-flex clearfix justify-content-end">
                     <!-- Área de login -->
-                    <div class="cart-area-claro mr-4">
-                            <a href="checkout.html"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                    <div class="cart-area cart-area-claro mr-4">
+                            <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
                     </div>
             </div>
         </nav>
 
     </header>
         <section>
-        <div class="container-fluid fundoLogin">
-        <div class="container">
-        <div class="row">
             @yield('content')
-        </div>
-
-        </div>
-        </div>
         </section>
 
         <footer id="rodape" class="footer_area">

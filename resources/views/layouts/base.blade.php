@@ -70,7 +70,7 @@
                     </div>
                       @else
                       <div class="cart-area">
-                      <a href="checkout.html"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                      <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
                       </div>
                       @endif
 
@@ -84,12 +84,9 @@
     </header>
         <section>
         <div class="container-fluid fundoLogin">
-        <div class="container">
-        <div class="row">
-            @yield('content')
-        </div>
 
-        </div>
+            @yield('content')
+
         </div>
         </section>
 

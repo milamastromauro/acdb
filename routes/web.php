@@ -23,8 +23,10 @@ Route::post('/login', 'CredencialController@login');
 
 // Route::get('/logout', 'CredencialController@logout');
 
-Route::get('/cadastraprodutos', 'CrudController@cadastraProdutos');
+Route::get('/cadastraprodutos/{par?}', 'CrudController@cadastraProdutos');
 Route::post('/cadastraprodutos', 'CrudController@cadastraProdutos');
+
+Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 
 Route::get('/categoria', 'CrudController@listaProdutos');
 
@@ -36,3 +38,7 @@ Route::view('/contato', 'contato');
 
 Route::get('/carrinho/{item}', 'CarrinhoController@AdicionaCarrinho');
 Route::get('/vercarrinho', 'CarrinhoController@VisualizaCarrinho');
+
+Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
+
+Route::get('/adm', 'CrudController@listaProdutosAdm');

@@ -12,11 +12,37 @@ use App\Foto as Foto;
 class CrudController extends Controller
 {
 
-    public function cadastraProdutos(Request $r){
+    public function cadastraProdutos($id=0, Request $r){
         if ($r->isMethod('get')){
-            return view('cadastraProdutos');
+            //sendo get sem id, é cadastro novo
+            if($id==0){
+                return view('cadastraProdutos', ['insert' => 1]);
+            }
+            else{
+                //tendo id, é pedido de update de um produto existente
+                $produto = Produto::find($id);
+                //$produtos = Produto::all();
+                    $fotos = $produto->Fotos()->get();
+                    foreach($fotos as $foto){
+                        $lista = array('produto_id'=>$produto->idProduto,
+                        'produto_nome'=>$produto->nomeProduto,
+                        'produto_valor'=>$produto->valorProduto,
+                        //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
+                        'foto'=>$foto->localFoto);
+                    }
+                    return view('cadastraProdutos',
+                    ['produto' => $lista ]);
+                }
+            }
+
+        // é post!
+        if ($id == 0) { // é insert!
+            $produto = new Produto;
+        } else { // é update!
+            $produto = Produto::find($id);
         }
-        $produto = new Produto;
+            
+        //$produto = new Produto;
         $produto->nomeProduto = $r->inputNome;
         $produto->estoqueProduto = $r->inputEstoque;
         $produto->skuProduto = $r->inputSku;
@@ -48,6 +74,14 @@ class CrudController extends Controller
                         ->with('error', 'Falha ao fazer upload')
                         ->withInput();
     }
+    else{
+        if (isset($lista['foto'])){
+            //se não foi enviada nenhuma foto nova, mantém a foto que já estava na array
+            $foto->Produto_idProduto = $produto->idProduto;
+            $foto->localFoto = $lista['foto'];
+            $foto->save(); 
+        }
+    }
      
         return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
     }
@@ -73,6 +107,25 @@ class CrudController extends Controller
         }
 
             return view('categoria',
+            ['produtos'=>$lista]);
+            //var_dump($lista);
+    }
+
+    public function listaProdutosAdm(Request $r){
+        if ($r->isMethod('get')){
+            $produtos = Produto::all();
+            foreach($produtos as $produto){
+                $fotos = $produto->Fotos()->get();
+                foreach($fotos as $foto){
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto,
+                    //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
+                    'foto'=>$foto->localFoto);
+                }
+            }
+        }
+        return view('listaprodutos',
             ['produtos'=>$lista]);
             //var_dump($lista);
     }
