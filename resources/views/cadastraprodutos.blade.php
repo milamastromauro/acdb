@@ -3,8 +3,8 @@
 @section('title', 'A Cabeça do Buda - Cadastro')
 
 @section('content')
-      
-<section class="container-fluid fundoLogin">
+
+<section class="container-fluid fundologin2">
     <div class="container">
         <div class="row">
             <div class="loginArea col-12 col-sm-12 col-md-12 col-lg-6 offset-lg-4 col-xl-6 mt-5 mb-5">
