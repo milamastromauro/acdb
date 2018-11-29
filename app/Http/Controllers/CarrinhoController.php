@@ -15,6 +15,12 @@ class CarrinhoController extends Controller
         $produto = Produto::find($id);
         $lista = [];
         $carrinho = $r->session()->get('carrinho');
+
+        //esquema para soma
+        $soma = $r->session()->get('soma');
+        if (isset($soma)) $soma+=$produto->valorProduto;
+        else $soma=$produto->valorProduto;
+
         //var_dump($carrinho);
         if (isset($carrinho)) $lista = $carrinho;
 
@@ -25,11 +31,14 @@ class CarrinhoController extends Controller
         var_dump($lista);
 
         $r->session()->put('carrinho',$lista);
+        $r->session()->put('soma',$soma);
         // $r->session()->flush();
     }
 
     public function VisualizaCarrinho(Request $r){
         $carrinho = $r->session()->get('carrinho');
-        return $carrinho;
+        $soma = $r->session()->get('soma');
+        var_dump($carrinho);
+        var_dump($soma);
     }
 }

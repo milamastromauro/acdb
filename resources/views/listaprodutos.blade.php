@@ -16,6 +16,7 @@
                         <th scope="col">Valor</th>
                         <th scope="col">Foto</th>
                         <th scope="col">Editar</th>
+                        <th scope="col">Apagar</th>
                     </tr>
                     </tr>
                     </thead>
@@ -29,7 +30,8 @@
                         <img src="{{$produto['foto']}}" alt="" width="50px"> 
                         @endisset
                         </td>
-                        <td><a class='btn pull-right btn-info' href='cadastraprodutos/{{ $produto['produto_id'] }}' role='button'><i class='fas fa-pencil-alt'></i></a></td>     
+                        <td><a class='btn pull-right btn-info' href='cadastraprodutos/{{ $produto['produto_id'] }}' role='button'><i class='fas fa-pencil-alt'></i></a></td>
+                        <td><a class='btn pull-right btn-danger' href='apagaproduto/{{ $produto['produto_id'] }}' role='button'><i class='fas fa-times'></i></a></td>          
                         </tr>
                     @empty
                         sem

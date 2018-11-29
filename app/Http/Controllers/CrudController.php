@@ -88,7 +88,14 @@ class CrudController extends Controller
         }
     }
      
-        return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
+        // return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
+        return redirect('/listaprodutos');
+    }
+
+    public function apagaProduto($id=0, Request $r){
+        $produto = Produto::find($id);
+        $produto->delete();
+        return redirect('/listaprodutos');
     }
 
     public function listaProdutos(Request $r){
@@ -100,13 +107,23 @@ class CrudController extends Controller
             //faz a query e entrega array filtrada pra view
             $produtos = Produto::all();
             foreach($produtos as $produto){
-                $lista[] = array('produto_id'=>$produto->idProduto,
-                    'produto_nome'=>$produto->nomeProduto,
-                    'produto_valor'=>$produto->valorProduto);
+                
+            $produtos = Produto::all();
+            foreach($produtos as $produto){
                 $fotos = $produto->Fotos()->get();
-                foreach($fotos as $foto){
-                    array_push($lista,['foto'=>$foto->localFoto]);
-                    //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
+                if (isset($fotos)){
+                    foreach($fotos as $foto){
+                        $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto,
+                    'foto'=>$foto->localFoto);
+                    }
+                }
+                
+                    // $lista[] = array('produto_id'=>$produto->idProduto,
+                    // 'produto_nome'=>$produto->nomeProduto,
+                    // 'produto_valor'=>$produto->valorProduto);
+                
                 }
             }
         }
@@ -131,9 +148,9 @@ class CrudController extends Controller
                     }
                 }
                 
-                    $lista[] = array('produto_id'=>$produto->idProduto,
-                    'produto_nome'=>$produto->nomeProduto,
-                    'produto_valor'=>$produto->valorProduto);
+                    // $lista[] = array('produto_id'=>$produto->idProduto,
+                    // 'produto_nome'=>$produto->nomeProduto,
+                    // 'produto_valor'=>$produto->valorProduto);
                 
             }
         }
