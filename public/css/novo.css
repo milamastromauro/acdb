@@ -769,7 +769,7 @@ width: 100%;
 }
 
 .botaocomprar{
-  background-color: #3713d6;
+  background-color: #6BD545;
   color: #FFF;
   font-family: 'Poppins';
   width: 200px;
@@ -925,11 +925,11 @@ border-radius: 5px;
     text-align: justify
 }
 .style_carrinho{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 .config_container{
   font-style: normal;
-  font-family:  'Lato', sans-serif;
+  font-family:  'Ubuntu', sans-serif;
   position: relative;
 
 }
@@ -950,6 +950,7 @@ border-radius: 5px;
   margin-bottom: 10px;
   border:none;
   text-decoration: none;
+  font-style: 'Ubuntu';
 }
 .botao_config {
   padding: 5px;
@@ -960,6 +961,8 @@ border-radius: 5px;
   border:none;
   text-decoration: none;
   box-shadow: 0;
+  font-style: 'Ubuntu';
+
 }
 .botao_continuar_comprando{
   padding: 2px;
