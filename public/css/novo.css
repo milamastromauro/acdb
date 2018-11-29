@@ -382,6 +382,13 @@ p.direitos{
 
 }
 
+.fundoLogin{
+  background: url("imagens/login/fundo.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+
+}
 .loginArea{
   background-color: rgba(248, 249, 250, 0.9);
   border-radius: 1em;
@@ -946,7 +953,7 @@ border-radius: 5px;
 
 }
 .carrinhodecompraclasse{
-  position: absolute;
+  
 }
 
 .carrinhodecompra_text{

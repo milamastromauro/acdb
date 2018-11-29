@@ -85,11 +85,10 @@
 
     </header>
         <section>
-        <div class="container-fluid fundoLogin">
 
             @yield('content')
 
-        </div>
+  
         </section>
 
         <footer id="rodape" class="footer_area">

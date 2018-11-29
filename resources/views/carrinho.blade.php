@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('/css/novo.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+@extends('layouts.base')
 
-    <title>Carrinho de Compra</title>
-  </head>
-  <body class="style_carrinho">
-    @include('header')
+@section('title', 'Carrinho')
+
+@section('content')
+
+  <div class="style_carrinho">
 
     <div class="container config_container">
       <section> <!--
@@ -30,7 +21,7 @@
           <button class="botao_config content-end" type="button" name="comprar">Continuar comprando</button>
        </div>
      </div> <-->
-     <div class="row justify-content-between">
+     <div class="row justify-content-around">
      <div class="carrinhodecompraclasse col-6 col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 ">
        <img src="{{ asset('/imagens/carrinho/carrinho_de_compra.png') }}" alt="carrinho_de_compra" height="100" width="180">
      </div>
@@ -143,9 +134,6 @@
         </div>
       </div>
     </section>
-
       </div>
-
-  @include("footer")
-  </body>
-</html>
+    </div>
+    @endsection
