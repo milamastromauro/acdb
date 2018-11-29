@@ -379,7 +379,7 @@ p.direitos{
   background-size: cover;
   width: 100%;
   overflow: hidden;
-  height: 68vh;
+
 }
 
 .loginArea{
@@ -924,5 +924,114 @@ border-radius: 5px;
     padding: 5px;
     text-align: justify
 }
+.style_carrinho{
+  font-family: 'Oswald', sans-serif;
+}
+.config_container{
+  font-style: normal;
+  font-family:  'Lato', sans-serif;
+  position: relative;
 
+}
+.carrinhodecompraclasse{
+  position: absolute;
+}
+
+.carrinhodecompra_text{
+  position: absolute;
+  left: 85px;
+  top: 33px;
+}
+.button_buy{
+  background-color: #6BD545;
+  padding: 3px 40px;
+  font-size: 20px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border:none;
+  text-decoration: none;
+}
+.botao_config {
+  padding: 5px;
+  margin: 0px 5px 5px 5px;
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+}
+.botao_continuar_comprando{
+  padding: 2px;
+  margin: 32px 2px 2px 2px;
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+}
+
+.validar_cupom{
+  padding: 3px;
+  margin: 2px;
+}
+
+.margin_prd{
+  margin-bottom: 5px;
+}
+.fundoelementoscarrinho{
+  background-color: #eff1f4;
+
+}
+
+.textoalinhadodireita{
+  text-align: right;
+
+}
+
+.textocentralizado{
+  line-height: 68px;
+}
+.textocentral{
+  line-height: 30px;
+}
+
+.fontetitulo{
+  font-size: 15px;
+}
+
+.fontetexto{
+  font-size: 15px;
+}
+
+.nome_prod{
+  max-width: 290px;
+  width: 100%;
+}
+.valortotalprod{
+  font-weight: bold;
+  line-height: 70px;
+}
+@media (max-width: 576px){
+  .fontetitulo{
+    font-size: 12px;
+  }
+  .fontetexto{
+    font-size: 10px;
+  }
+
+  .textoalinhadodireita{
+    text-align: left;
+  }
+  .button_buy{
+    margin: 3px auto 5px;
+    display: block;
+  }
+  .inputvalidar_cupom{
+    width: 100%
+  }
+  .valortotalprod{
+    line-height: 20px;
+}
 /*fim*/
