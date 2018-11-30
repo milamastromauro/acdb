@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="{{ asset('/css/novo.css') }}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Poppins" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+@extends('layouts.base')
 
-    <title>Checkout</title>
-  </head>
-  <body class="checkout">
-    @include('header')
+@section('title', 'Categoria de Produtos')
 
-    <header>
+@section('content')
+
       <div class="container-fluid backbanner"></div>
       <div class="col align-self-start checktitulo">
-          <p class="pcheckout"> CheckOut </p> </div>
-      </div>
-    </header>
+          <span class="pcheckout"> CheckOut </span> </div>
+
 
     <div class="container clearboth checkoutwrapper">
     <div class="row">
-      <section class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 teste2 primdiv">
-      <p class="end row2">Endereço e Informações de Cobrança</p>
+      <section class="end_estilo col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 teste2 primdiv">
+      <p class="end_estilo row2">Endereço e Informações de Cobrança</p>
       <form action="check.html" method="post">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
       <label for="nome">Nome  <span class="asterisco"> * </span></label>   <br>
@@ -34,7 +21,7 @@
         campo obrigatório
       </div>
      </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+    <div class="end_estilo col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
       <label for="nome">Sobrenome  <span class="asterisco"> * </span></label>   <br>
       <input type="text"  class="col-12" id="sobrenome">
       <div class="invalid-feedback">
@@ -62,7 +49,7 @@
         </div>
 
 
-    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+    <div style="clear:both" class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
       <label for="endereco_cad">Endereço  <span class="asterisco"> * </span></label>   <br>
       <input type="text"  class="col-12" id="endereco_cad">
       <div class="invalid-feedback">
@@ -128,7 +115,7 @@
       </div>
       </div>
 
-    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+    <div style="clear:both" class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
       <label for="nome">E-mail  <span class="asterisco"> * </span></label>   <br>
       <input type="text"  class="col-12" id="email_end">
       <div class="invalid-feedback">
@@ -247,9 +234,4 @@
    </div>
  </div>
 
-    </section>
-
-  @include("footer")
-
-  </body>
-</html>
+  	    @endsection
