@@ -44,30 +44,31 @@
 
       <div class="teste2 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3 form-group">
         <label for="cpfcnpj">CPF/CNPJ</label>
-        <select class="form-control" id="cpfcnpj" name="cpfcnpj">
-        <option selected name="pessoafisicaCliente" value="0">CPF</option>
-        <option name="pessoajuridicaCliente" value="1">CNPJ</option>
-        </select>
-        <div class="invalid-feedback">
-          campo obrigatório
-        </div>
+          <select class="form-control" id="cpfcnpj" name="cpfcnpj">
+            <option selected name="pessoafisicaCliente" value="0">CPF</option>
+            <option name="pessoajuridicaCliente" value="1">CNPJ</option>
+          </select>
+          <div class="invalid-feedback">
+            campo obrigatório
+          </div>
       </div>
 
       <div class="teste2 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3 form-group">
-       <label for="cpf_cnpj">CPF/CNPJ</label>
-       <input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" placeholder="CPF/CNPJ (somente números)" required>
-      <div class="invalid-feedback">
-                 campo obrigatório
-        </div>
-        </div>
+         <label for="cpf_cnpj">CPF/CNPJ</label>
+         <input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" placeholder="CPF/CNPJ (somente números)" required>
+            <div class="invalid-feedback">
+                       campo obrigatório
+              </div>
+      </div>
 
 
     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-      <label for="endereco_cad">Endereço  <span class="asterisco"> * </span></label>   <br>
-      <input type="text"  class="col-12" id="endereco_cad">
-      <div class="invalid-feedback">
-        campo obrigatório
-      </div> </div>
+        <label for="endereco_cad">Endereço  <span class="asterisco"> * </span></label>   <br>
+        <input type="text"  class="col-12" id="endereco_cad">
+          <div class="invalid-feedback">
+            campo obrigatório
+          </div>
+    </div>
     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
       <label for="complemento_end">Complemento(casa,apto) <span class="asterisco"> * </span></label>   <br>
       <input type="text"  class="col-12" id="complemento_end">

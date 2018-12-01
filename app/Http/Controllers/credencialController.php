@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\http\request;
 use Illuminate\Support\Facades\DB;
 use App\Cliente as Cliente;
+use App\Endereco as Endereco;
 use Validator;
 use Illuminate\Support\MessageBag;
 
@@ -67,9 +68,10 @@ class CredencialController extends Controller
           return redirect('cadastro')
                         ->withErrors($validator)
                         ->withInput();
+        exit;
         }
 
-        //falta separar nome principal e sobrenome
+
         $cliente = new Cliente;
         $cliente->nomeCliente = $r->nome;
         $cliente->sobrenomeCliente = $r->sobrenome;
@@ -83,8 +85,20 @@ class CredencialController extends Controller
           }
         $cliente->dataCriacaoCliente = date("Y-m-d H:i:s");
         $cliente->dataCriacaoCliente = date("Y-m-d H:i:s");
-
         $cliente->save();
+
+        $endereco = new Endereco;
+        $endereco->Cliente_idCLiente = $cliente->idCliente;
+        $endereco->enderecoCliente = $r->endereco;
+        $endereco->complementoEndereco = $r->complemento;
+        $endereco->Estado = $r->estado;
+        $endereco->Cidade = $r->cidade;
+        $endereco->Cep = $r->cep;
+        $endereco->save();
+
+
+
+
 
         return view('cadastro',['resultado' => "cadastro efetuado com sucesso"]);
     }

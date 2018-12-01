@@ -36,9 +36,15 @@ class CarrinhoController extends Controller
     }
 
     public function VisualizaCarrinho(Request $r){
-        $carrinho = $r->session()->get('carrinho');
+        $produtos = $r->session()->get('carrinho');
+        if(!isset($produtos)){
+          $produtos = [];
+        }
         $soma = $r->session()->get('soma');
-        var_dump($carrinho);
-        var_dump($soma);
+        $valorTotal = $soma+10;
+        // var_dump($produtos);
+        // exit;
+        // var_dump($soma);
+        return view('carrinho', ['produtos'=>$produtos, 'soma'=>$soma, 'valorTotal'=>$valorTotal]);
     }
 }

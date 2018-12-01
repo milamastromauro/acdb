@@ -49,33 +49,25 @@
     </div>
     </section>
     <section>
+
       <div class="row justify-content-around">
+      @forelse($produtos as $produto)
         <div class="fontetexto margin_prd border col-4 col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 div1">
-          <img src="{{ asset('/imagens/produtos-categoria/conjunto_pink_frente.jpg') }}" alt="carrinho_de_compra" height="100" width="80">
-         <span class="nome_prod">  Conjunto Terninho Pink - Calça e Blazer - Tam: M </span>
+          <img src="http://localhost/acdb/public/imagens/produtos-categoria/conjunto_pink_frente.jpg" alt="carrinho_de_compra" height="100" width="80">
+          <span class="nome_prod">  {{ $produto['produto_nome'] }} - Tam: M </span>
         </div>
-      <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
+        <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
         1
         </div>
-      <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 div1">
-          R$ 450
+        <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 div1">
+          R$ {{ $produto['produto_valor'] }}
         </div>
-      <div class="fontetexto textocentralizado margin_prd border col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
-          R$ 450
+        <div class="fontetexto textocentralizado margin_prd border col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
+          R$ {{ $produto['produto_valor'] }}
         </div>
-        <div class="fontetexto textocentralizado margin_prd border col-4 col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 div1">
-          <img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" alt="carrinho_de_compra" height="100" width="80">
-          Vestido Geométrico - Tam: M
-        </div>
-      <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
-        1
-        </div>
-      <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 div1">
-          R$ 260
-        </div>
-      <div class="fontetexto textocentralizado margin_prd border col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
-          R$ 260
-        </div>
+        @empty
+        Você não tem produtos no carrinho!
+        @endforelse
       </div>
       </section>
       <section>
@@ -91,7 +83,7 @@
               <span class="valortotalprod">Valor total dos produtos:</span>
             </div>
           <div class="fontetitulo textoalinhadodireita textocentralizado border col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    R$ 710
+                    R$ {{ $soma }}
               </div>
       </div>
 
@@ -121,7 +113,7 @@
       <b>Valor total:</b>
     </div>
 <div class="textoalinhadodireita border col-5 col-xs-5 col-sm-5 col-md-2 col-lg-2 col-xl-2">
-          R$ 720
+          R$ {{ $valorTotal }}
     </div>
 </div>
 </section>
