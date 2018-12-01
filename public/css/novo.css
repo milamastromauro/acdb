@@ -664,7 +664,7 @@ p.direitos{
   float: left;
   position: absolute;
   text-align: center !important;
-  top:-95px; left:6px;
+  margin-top: -95px; left:6px;
 
 }
 .checktitulo p{
@@ -687,6 +687,7 @@ width: 100%;
 }
 
 .pcheckout{
+  margin-top: 30px;
   font-size: 30px;
   color: black;
   text-transform: uppercase;
@@ -795,7 +796,7 @@ width: 100%;
   margin-bottom: 50px;
 }
 
-.end{
+.end_estilo{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Ubuntu';
@@ -953,7 +954,7 @@ border-radius: 5px;
 
 }
 .carrinhodecompraclasse{
-  
+
 }
 
 .carrinhodecompra_text{
