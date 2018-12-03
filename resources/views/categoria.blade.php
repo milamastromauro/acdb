@@ -55,7 +55,11 @@
                                 <div class="single-product-wrapper">
                                     <!-- Imagem do produto -->
                                     <div class="product-img">
+                                    @if(isset($produto['foto']))
 									<img src="{{$produto['foto']}}" alt="">
+                                    @else
+                                    <img src="{{ asset('css/imagens/default.png') }}" alt="">
+                                    @endif
                                     </div>
                                     <!-- Descricao -->
                                     <div class="descricao mt-1">

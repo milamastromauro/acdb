@@ -24,15 +24,27 @@ class CarrinhoController extends Controller
         //var_dump($carrinho);
         if (isset($carrinho)) $lista = $carrinho;
 
-        $arrayproduto = ['produto_id'=>$produto->idProduto,
-        'produto_nome'=>$produto->nomeProduto,
-        'produto_valor'=>$produto->valorProduto];
+        $foto = $produto->Fotos()->first();
+        if (isset($foto)){
+            $arrayproduto = ['produto_id'=>$produto->idProduto,
+            'produto_nome'=>$produto->nomeProduto,
+            'produto_valor'=>$produto->valorProduto,
+            'produto_foto'=>$foto->localFoto];
+        }
+        else{
+            $arrayproduto = ['produto_id'=>$produto->idProduto,
+            'produto_nome'=>$produto->nomeProduto,
+            'produto_valor'=>$produto->valorProduto];
+        }
         array_push($lista, $arrayproduto);
         var_dump($lista);
 
+
+        
+
         $r->session()->put('carrinho',$lista);
         $r->session()->put('soma',$soma);
-        // $r->session()->flush();
+         //$r->session()->flush();
     }
 
     public function VisualizaCarrinho(Request $r){

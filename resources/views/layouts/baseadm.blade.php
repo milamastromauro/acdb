@@ -48,7 +48,7 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                     <!-- Área de login -->
                     <div class="cart-area cart-area-claro mr-4">
-                            <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                            <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span>{{ Session::get('nome') }}</a>
                     </div>
             </div>
         </nav>

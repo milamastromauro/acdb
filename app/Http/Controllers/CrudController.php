@@ -108,23 +108,19 @@ class CrudController extends Controller
             $produtos = Produto::all();
             foreach($produtos as $produto){
                 
-            $produtos = Produto::all();
-            foreach($produtos as $produto){
-                $fotos = $produto->Fotos()->get();
-                if (isset($fotos)){
-                    foreach($fotos as $foto){
+                $foto = $produto->Fotos()->first();
+                if (isset($foto)){
                         $lista[] = array('produto_id'=>$produto->idProduto,
                     'produto_nome'=>$produto->nomeProduto,
                     'produto_valor'=>$produto->valorProduto,
                     'foto'=>$foto->localFoto);
-                    }
+                }
+                else{
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
                 }
                 
-                    // $lista[] = array('produto_id'=>$produto->idProduto,
-                    // 'produto_nome'=>$produto->nomeProduto,
-                    // 'produto_valor'=>$produto->valorProduto);
-                
-                }
             }
         }
 
@@ -134,28 +130,26 @@ class CrudController extends Controller
     }
 
     public function listaProdutosAdm(Request $r){
-        $lista = [];
+        $listaadm = [];
         if ($r->isMethod('get')){
             $produtos = Produto::all();
             foreach($produtos as $produto){
-                $fotos = $produto->Fotos()->get();
-                if (isset($fotos)){
-                    foreach($fotos as $foto){
-                        $lista[] = array('produto_id'=>$produto->idProduto,
+                $foto = $produto->Fotos()->first();
+                if (isset($foto)){
+                        $listaadm[] = array('produto_id'=>$produto->idProduto,
                     'produto_nome'=>$produto->nomeProduto,
                     'produto_valor'=>$produto->valorProduto,
                     'foto'=>$foto->localFoto);
-                    }
                 }
-                
-                    // $lista[] = array('produto_id'=>$produto->idProduto,
-                    // 'produto_nome'=>$produto->nomeProduto,
-                    // 'produto_valor'=>$produto->valorProduto);
-                
+                else{
+                    $listaadm[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
+                }
             }
         }
         return view('listaprodutos',
-            ['produtos'=>$lista]);
+            ['produtos'=>$listaadm]);
             //  var_dump($lista);
     }
     

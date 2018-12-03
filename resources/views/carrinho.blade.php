@@ -53,8 +53,12 @@
       <div class="row justify-content-around">
       @forelse($produtos as $produto)
         <div class="fontetexto margin_prd border col-4 col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 div1">
-          <img src="http://localhost/acdb/public/imagens/produtos-categoria/conjunto_pink_frente.jpg" alt="carrinho_de_compra" height="100" width="80">
-          <span class="nome_prod">  {{ $produto['produto_nome'] }} - Tam: M </span>
+          @if(isset($produto['produto_foto']))
+          <img src="{{ $produto['produto_foto'] }}" alt="carrinho_de_compra" height="100" width="80">
+          @else
+          <img src="{{ asset('css/imagens/default.png') }}" alt="carrinho_de_compra" height="100" width="80">
+          @endif
+          <span class="nome_prod">  {{ $produto['produto_nome'] }} </span>
         </div>
         <div class="fontetexto textocentralizado margin_prd border col-3 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 div1">
         1
