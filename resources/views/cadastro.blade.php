@@ -22,7 +22,7 @@
             @endif
                 <form class="needs-validation" action="/acdb/public/cadastro" method="POST" novalidate>
                 {!! csrf_field()!!}
-				  <div class="form-row">
+				  <div id="formcadastro" class="form-row">
 				    <div class="form-group col-md-6">
 				      <label for="registroNome">Nome</label>
 				      <input type="text" class="form-control" id="registroNome" name="nome" placeholder="Nome" required>
@@ -83,13 +83,34 @@
 				    </div>
 
 				  <!-- </div> -->
-				  <div class="form-group col-md-6">
-				    <label for="endereco">Endereço</label>
-				    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço" required>
+					<div class="form-group col-md-4">
+				    <label for="data_nasc">Data de Nascimento</label>
+				    <input type="date" class="form-control" id="data_nasc" name="data_nasc" maxlength="10" placeholder="DD/MM/AAAA" required>
 						<div class="invalid-feedback">
 							campo obrigatório
 						</div>
 				  </div>
+
+					<div class="form-group col-md-2">
+				    <label for="genero">Gênero</label>
+				    <select class="form-control" id="genero" name="genero" required>
+							<option selected class="genmasc" id="genmasc" name="genmasc" value="M">M</option>
+							<option class="genmfem" id="genfem" name="genmfem" value="F">F</option>
+							<option class="genoutro" id="genoutro" name="genoutro" value="Outro">Outro</option>
+						</select>
+						<div class="invalid-feedback">
+							campo obrigatório
+						</div>
+				  </div>
+
+					<div class="form-group col-md-6">
+				    <label for="endereco">Endereço</label>
+				    <input type="text" class="form-control" id="inputAddress" name="endereco" placeholder="Endereco">
+						<div class="invalid-feedback">
+							campo obrigatório
+						</div>
+				  </div>
+
 				  <div class="form-group col-md-6">
 				    <label for="complemento">Complemento</label>
 				    <input type="text" class="form-control" id="inputAddress2" name="complemento" placeholder="Complemento">
@@ -161,7 +182,8 @@
 		let select = document.getElementById('estado');
 		let teste;
 		for(let estado of data){
-		teste += "<option value='"+estado.id+"'>"+estado.nome+"</option>";
+			// console.log(estado);
+		teste += "<option id='"+estado.nome+"'value='"+estado.id+"'>"+estado.nome+"</option>";
 		select.innerHTML = teste;
 		}} else {
 		// We reached our target server, but it returned an error
@@ -175,6 +197,7 @@
 	request.send();
 
 window.onload = function() {
+
 	var estado = document.getElementById('estado');
 	var cidade = document.getElementById('cidade');
 
@@ -186,8 +209,10 @@ window.onload = function() {
 			// Success!
 			var data = JSON.parse(request.responseText);
 			let teste;
+			// console.log(estado.selectedOptions)
 			for(let estado of data){
-			teste += "<option value='"+estado.id+"'>"+estado.nome+"</option>";
+				// console.log(estado.nome);
+			teste += "<option value='"+estado.nome+"'>"+estado.nome+"</option>";
 			cidade.innerHTML = teste;
 			}} else {
 			// We reached our target server, but it returned an error
@@ -200,6 +225,22 @@ window.onload = function() {
 
 			request.send();
 	}
-	}
+
+	//Máscara da data de Nascimento
+	var datanasc = document.getElementById('data_nasc');
+	console.log(datanasc);
+
+				datanasc.onkeyup = function mascaraData(){
+						if (datanasc.value.length == 2){
+							datanasc.value = datanasc.value + '/';
+
+						return true;
+						}
+						if (datanasc.value.length == 5){
+						datanasc.value = datanasc.value + '/';
+						return true;
+						}
+					}
+				}
 </script>
 @endsection

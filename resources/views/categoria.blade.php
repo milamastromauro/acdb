@@ -64,8 +64,8 @@
                                         </a>
                                         <p class="preco">R${{$produto['produto_valor']}},00</p>
                                           <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="carrinho/{{$produto['produto_id']}}" class="btn comprar">Comprar</a>
+                                          <div id="divcomprar" class="add-to-cart-btn">
+                                              <button id="btncomprar" class="btn comprar">Comprar</button>
                                           </div>
                                     </div>
                                 </div>
@@ -208,4 +208,21 @@
                     </div>
                 </div>
             </div>
+
+<script>
+window.onload = function() {
+
+			var comprar = document.getElementById('btncomprar');
+			var comprar2 = document.getElementById('divcomprar');
+
+
+			comprar.onclick = function(){
+
+			comprar.innerHTML = "<div>Produto adicionado</div>";
+			setTimeout(function(){
+				comprar2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
+			}, 1000);
+		}
+}
+</script>
 						    @endsection

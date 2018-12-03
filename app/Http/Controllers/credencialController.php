@@ -83,6 +83,8 @@ class CredencialController extends Controller
           } else {
         $cliente->cpfCliente = $r->cpf_cnpj;
           }
+        $cliente->Data_Nascimento = $r->data_nasc;
+        $cliente->Genero = $r->genero;
         $cliente->dataCriacaoCliente = date("Y-m-d H:i:s");
         $cliente->dataCriacaoCliente = date("Y-m-d H:i:s");
         $cliente->save();
@@ -91,7 +93,7 @@ class CredencialController extends Controller
         $endereco->Cliente_idCLiente = $cliente->idCliente;
         $endereco->enderecoCliente = $r->endereco;
         $endereco->complementoEndereco = $r->complemento;
-        $endereco->Estado = $r->estado;
+        $endereco->Estado = $r->query('id');
         $endereco->Cidade = $r->cidade;
         $endereco->Cep = $r->cep;
         $endereco->save();
