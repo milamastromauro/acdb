@@ -22,7 +22,7 @@ body.checkout {
 /*config especifica body faq*/
 
   .fundobodyfaq{
-    background-image: url("imagens/fundo-bkp.jpg");
+    background: none;
     object-fit: cover;
 
 }
@@ -677,7 +677,7 @@ p.direitos{
 
 .backbanner{
   background: url("imagens/breadcumb.jpg") no-repeat center center;
-width: 100%;
+  width: 100%;
   height: 140px;
   opacity: 0.1;
   position: relative;
@@ -878,6 +878,10 @@ border-radius: 5px;
 
 .blocoproduto{
   margin-top: 30px;
+
+}
+.foto_produto_op{
+  clear: both;
 }
 .titulo_produto{
   font-weight: bold;
@@ -919,20 +923,33 @@ border-radius: 5px;
 
 }
 
+.fontefaq{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Ubuntu';
+}
+.fontefaqans{
+  font-size: 14px;
+  font-style: normal;
+  font-family: 'Ubuntu';
+}
+
+.blocoperguntas{
+  margin: 20px 0px 12px 5%;
+  border: 1px solid gray;
+
+}
+
 
 #faq-box {
     width: 70%;
     margin: 5% 15% 0%;
-    border: 6px solid gray;
+    border: 1px solid gray;
     padding: 0px;
     z-index: 9;
 }
 
-#q-box {
-    text-transform: uppercase;
-    color: white;
-    background-color: black;
-}
 
 #a-box {
     text-transform: uppercase;

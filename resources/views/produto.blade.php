@@ -7,7 +7,7 @@
 
 			<div class="container">
 				<div class="row justify-content-around ">
-								<div class="col-3 col-xs-3 col-sm-3 col-md-6 col-lg-6 col-xl-6">
+								<div class="col-3 col-xs-3 col-sm-3 col-md-6 col-lg-6 col-xl-6 foto_produto_op">
 			      <img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" class="border_produto" id="modelo" alt="product-image" height="415" width="288" >
 			    </div>
 
