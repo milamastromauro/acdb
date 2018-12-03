@@ -47,9 +47,18 @@
             <!-- Seção da direita -->
             <div class="header-meta d-flex clearfix justify-content-end">
                     <!-- Área de login -->
-                    <div class="cart-area cart-area-claro mr-4">
-                            <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span>{{ Session::get('nome') }}</a>
+                    @if(null !== (Session::get('nome')))
+                    <div id="logado" class="cart-area-claro">
+                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
                     </div>
+                    <div id="logout" class="cart-area-claro">
+                      <a href="" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>
+                    </div>
+                      @else
+                      <div class="cart-area-claro">
+                      <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                      </div>
+                      @endif
             </div>
         </nav>
 

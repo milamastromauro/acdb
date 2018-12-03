@@ -65,9 +65,9 @@
                             </form>
                     </div>
                     <!-- Área de login -->
-                    @if(isset($nomeCliente))
+                    @if(null !== (Session::get('nome')))
                     <div id="logado" class="cart-area">
-                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ $nomeCliente }}</span></a>
+                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
                     </div>
                     <div id="logout" class="cart-area">
                       <a href="" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>

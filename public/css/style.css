@@ -86,7 +86,7 @@ p{
 }
 
 .user-login-info, .cart-area-claro{
-  border-left: 0px solid #ebebeb;
+  border-left: 1px solid #4e565e;
 }
 
 .user-login-info-claro a, .cart-area-claro a{
@@ -97,7 +97,7 @@ p{
   line-height: 145px;
   height: 100%;
   color: #f0f0f0;
-  font-size: 20px;
+  font-size: 14px;
   display: block;
 }
 
