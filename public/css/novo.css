@@ -815,9 +815,12 @@ p.direitos{
   text-align: center;
   border-radius: 5px;
   font-weight: bolder;
-  background-color: #c0c0c0;
-  margin-top: 20px;
-  margin-left: 30px;
+  background-color: #f4f5f7;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-family: 'Ubuntu';
+  font-size: 30px;
 }
 
 .cardoso {
@@ -828,16 +831,27 @@ margin-left: 30px;
 .para {
   text-align: justify;
   padding: 7px;
-background-color:#c0c0c0;
-border-radius: 5px;
+  background-color:#f4f5f7;
+  border-radius: 5px;
   color: black;
   font-size: 20px;
   font-weight: lighter;
   margin-left: 30px;
+  font-size: 16px;
+  font-family: 'Ubuntu';
+}
+.infos_loja_contato{
+  margin-bottom: 35px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color:#f4f5f7;
+  text-align: justify;
+  font-size: 15px;
+  color: black;
 }
 
 .tituloinfos {
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .margintopdez {
