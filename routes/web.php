@@ -31,9 +31,11 @@ Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 Route::view('/carrinho', 'carrinho');
 
 Route::get('/categoria', 'CrudController@listaProdutos');
+Route::get('/index', 'CrudController@listaProdutosDestaque');
+
+
 
 Route::view('/checkout', 'checkout');
-Route::view('/index', 'index');
 Route::view('/faq', 'faq');
 Route::view('/produto', 'produto');
 Route::view('/contato', 'contato');

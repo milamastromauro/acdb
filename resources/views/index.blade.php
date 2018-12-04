@@ -34,30 +34,39 @@
 </div>
 <h1 class="destaques mt-4"><strong>Destaques</strong></h1><br>
 
-<div id="produtosMenores" class="container">
-	<div class="row">
-
-		<div id="destaqueMenorHome1_gp" class="destaques_prod mt-4 col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-			<!-- <img class="destaques_img mt-4" src="imagens/destaques/destaque1b.jpg" alt="Produto 1"><br> -->
-			<a href="#"><button type="button" class="botaoMenorHome1"><strong>VEJA MAIS</strong></button></a>
-		</div>
-
-		<div id="destaqueMenorHome2_gp" class="destaques_prod mt-4 col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-			<!-- <img class="destaques_img mt-4" src="imagens/destaques/destaque2b.jpg" alt="Produto 2"><br> -->
-			<a href="#"><button type="button" class="botaoMenorHome1"><strong>VEJA MAIS</strong></button></a>
-		</div>
-
-		<div id="destaqueMenorHome3_gp" class="destaques_prod mt-4 col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-			<!-- <img class="destaques_img mt-4" src="imagens/destaques/destaque3b.jpg" alt="Produto 3"><br> -->
-			<a href="#"><button type="button" class="botaoMenorHome1"><strong>VEJA MAIS</strong></button></a>
-		</div>
-
-		<div id="destaqueMenorHome4_gp" class="destaques_prod mt-4 col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-			<!-- <img class="destaques_img mt-4" src="imagens/destaques/destaque4b.jpg" alt="Produto 4"><br> -->
-			<a href="#"><button type="button" class="botaoMenorHome1"><strong>VEJA MAIS</strong></button></a>
-		</div>
-	</div>
-</div>
+<div class="col-12 col-md-8 col-lg-12">
+                    <div class="shop_grid_product_area">
+                      <div class="row">
+                      @forelse ($produtos as $produto)
+                        <!-- inicio prod -->
+                        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                                <div class="single-product-wrapper">
+                                    <!-- Imagem do produto -->
+                                    <div class="product-img">
+                                    @if(isset($produto['foto']))
+									<img src="{{$produto['foto']}}" alt="">
+                                    @else
+                                    <img src="{{ asset('css/imagens/default.png') }}" alt="">
+                                    @endif
+                                    </div>
+                                    <!-- Descricao -->
+                                    <div class="descricao mt-1">
+                                        <a href="#">
+                                            <h6>{{$produto['produto_nome']}}</h6>
+                                        </a>
+                                        <p class="preco">R${{$produto['produto_valor']}},00</p>
+                                          <!-- Comprar -->
+                                          <div class="add-to-cart-btn">
+                                              <a href="carrinho/{{$produto['produto_id']}}" class="btn comprar">Comprar</a>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+							<!-- fim produto -->
+                      @empty
+                        sem
+										@endforelse
+</div></div></div>
 
 <div id="produtosMaiores_gp" class="container">
 	<div class="row">

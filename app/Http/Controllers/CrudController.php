@@ -100,11 +100,6 @@ class CrudController extends Controller
 
     public function listaProdutos(Request $r){
         if ($r->isMethod('get')){
-            //modifica para também pegar por categoria
-            //precisa colocar a categoria no cadastro
-            //cria classe
-            //procura exemplo que passa parametro da roda - id
-            //faz a query e entrega array filtrada pra view
             $produtos = Produto::all();
             foreach($produtos as $produto){
                 
@@ -125,6 +120,32 @@ class CrudController extends Controller
         }
 
             return view('categoria',
+            ['produtos'=>$lista]);
+            // var_dump($lista);
+    }
+
+    public function listaProdutosDestaque(Request $r){
+        if ($r->isMethod('get')){
+            $produtos = Produto::where('destaqueProduto', 1)->get();
+            foreach($produtos as $produto){
+                
+                $foto = $produto->Fotos()->first();
+                if (isset($foto)){
+                        $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto,
+                    'foto'=>$foto->localFoto);
+                }
+                else{
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
+                }
+                
+            }
+        }
+
+            return view('index',
             ['produtos'=>$lista]);
             // var_dump($lista);
     }

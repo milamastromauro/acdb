@@ -262,7 +262,7 @@ p.direitos{
 }
 
 /* CADA PRODUTO */
-#pagina-categoria a.btn.comprar{
+a.btn.comprar{
   background-color: #C3DB5D;
   color: #fff;
 }
@@ -282,7 +282,7 @@ p.direitos{
   margin-top: 10px;
 }
 
-#pagina-categoria .product-img img{
+.product-img img{
   max-width: 100%;
 }
 
