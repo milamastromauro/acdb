@@ -7,7 +7,7 @@
 
 			<div class="container">
 				<div class="row">
-								<div class="align-items-center col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 			      <img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" class="border_produto align-items-center" id="modelo" alt="product-image" height="415" width="288">
 			    	</div>
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 blocoproduto">
