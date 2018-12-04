@@ -37,7 +37,8 @@ class CarrinhoController extends Controller
             'produto_valor'=>$produto->valorProduto];
         }
         array_push($lista, $arrayproduto);
-        var_dump($lista);
+        //var_dump($lista);
+        
 
 
         
@@ -46,6 +47,7 @@ class CarrinhoController extends Controller
         $r->session()->put('qtdcarrinho',count($lista));
         $r->session()->put('soma',$soma);
          //$r->session()->flush();
+         return redirect('vercarrinho');
     }
 
     public function VisualizaCarrinho(Request $r){
