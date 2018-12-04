@@ -6,15 +6,13 @@
 
 
 			<div class="container">
-				<div class="row justify-content-around ">
-								<div class="col-3 col-xs-3 col-sm-3 col-md-6 col-lg-6 col-xl-6 foto_produto_op">
-			      <img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" class="border_produto" id="modelo" alt="product-image" height="415" width="288" >
-			    </div>
-
-			    <div class="col-3 col-xs-3 col-sm-3 col-md-6 col-lg-6 col-xl-6 blocoproduto">
-			       <h1>Vestido Geométrico</h1>
-					 </br>
-						  <h5> R$ 320</h5>
+				<div class="row">
+								<div class="align-items-center col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+			      <img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" class="border_produto align-items-center" id="modelo" alt="product-image" height="415" width="288">
+			    	</div>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 blocoproduto">
+								<h1 class="titulo_produto_2">Vestido Geométrico</h1>
+							<h5> R$ 320</h5>
 						</br>
 							<div>
 							<span class="titulo_produto"> Descrição </span>
@@ -25,7 +23,7 @@
 								<div class="row justify-content-around" id="descritivo">
 
           	<span class="position_name_d"> Tamanho </span>
-                <select class="size col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <select class="size col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                     <option name= "tamanho" value="PP">PP</option>
                     <option name= "tamanho" value="P">P</option>
                     <option name= "tamanho" value="M">M</option>
@@ -34,7 +32,7 @@
                 </select>
 
 					<span class="position_name_d"> Cor </span>
-                <select class="color col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <select class="color col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                     <option name="cor" value="color-1">Cor 1</option>
                     <option name="cor" value="color-2">Cor 2</option>
                     <option name="cor" value="color-3">Cor 3</option>
