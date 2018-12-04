@@ -22,7 +22,7 @@
     <body>
     <header class="header_area">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand p-3" href="index.html">
+            <a class="navbar-brand p-3" href="index">
                 <img src="{{asset('css/imagens/cabeca-buda-logo-2x.png')}}" alt="a cabeça do buda">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoMenu">
@@ -31,16 +31,16 @@
             <div class="collapse navbar-collapse ml-5" id="conteudoMenu">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="categoria.html">Masculino</a>
+                <a class="nav-link" href="categoria">Masculino</a>
                 </li>
                     <li class="nav-item">
-                <a class="nav-link" href="categoria.html">Feminino</a>
+                <a class="nav-link" href="categoria">Feminino</a>
                 </li>
                     <li class="nav-item">
-                <a class="nav-link" href="contato.html">Contato</a>
+                <a class="nav-link" href="contato">Contato</a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -78,7 +78,7 @@
 
                     <!-- Carrinho -->
                     <div class="cart-area">
-                            <a href="checkout.html"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>3</span></a>
+                            <a href="vercarrinho"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>3</span></a>
                     </div>
             </div>
         </nav>
@@ -99,14 +99,14 @@
                     <div class="d-flex mt-5 mr-5 footer">
                         <!-- Logo -->
                         <div class="footer-logo">
-                            <a href="#"><img src="{{asset('css/imagens/cabeca-buda-fundo-escuro-2x.png')}}" alt=""></a>
+                            <a href="index"><img src="{{asset('css/imagens/cabeca-buda-fundo-escuro-2x.png')}}" alt=""></a>
                         </div>
                         <!--  Menu primário-->
                         <div class="footer_menu_loja ml-5 mt-5">
                             <ul>
-                                <li><a href="index.html">Loja</a></li>
-                                <li><a href="cadastro.php">Cadastro</a></li>
-                                <li><a href="contato.html">Contato</a></li>
+                                <li><a href="categoria">Loja</a></li>
+                                <li><a href="cadastro">Cadastro</a></li>
+                                <li><a href="contato">Contato</a></li>
                             </ul>
                         </div>
                     </div>

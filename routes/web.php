@@ -33,7 +33,7 @@ Route::view('/carrinho', 'carrinho');
 Route::get('/categoria', 'CrudController@listaProdutos');
 
 Route::view('/checkout', 'checkout');
-//Route::view('/categoria', 'categoria');
+Route::view('/index', 'index');
 Route::view('/faq', 'faq');
 Route::view('/produto', 'produto');
 Route::view('/contato', 'contato');

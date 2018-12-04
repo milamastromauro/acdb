@@ -1,4 +1,4 @@
-var comboGoogleTradutor = null; //Varialvel global
+var comboGoogleTradutor = null; //Variavel global
 
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({

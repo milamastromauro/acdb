@@ -236,7 +236,7 @@ p.direitos{
   display: none;
 }
 
-.goog-te-banner-frame {
+.goog-te-banner-frame, .goog-gt-tt {
   display: none!important;
 }
 
