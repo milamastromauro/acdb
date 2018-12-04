@@ -24,7 +24,9 @@ class CredencialController extends Controller
             $usuario = Cliente::where('emailCliente', '=', $mail)->first();
 
             $nome = $usuario->nomeCliente;
+            $adm = $usuario->admin;
             $s->session()->put('nome', $nome);
+            $s->session()->put('adm', $adm);
             $nomeCliente = $s->session()->get('nome');
 
             $lembrar = $s->input('form-check-input');

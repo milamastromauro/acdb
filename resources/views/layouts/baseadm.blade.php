@@ -16,6 +16,7 @@
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     </head>
     <body>
+    @if(1 == (Session::get('adm')))
     <header class="header_area">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand p-3" href="index.html">
@@ -66,6 +67,7 @@
         <section>
             @yield('content')
         </section>
+    
 
         <footer id="rodape" class="footer_area">
         <div class="container">
@@ -103,5 +105,12 @@
         	</div>
     </footer>
     </body>
+    @else
+    <section>
+        <div class="container  py-4">
+            Desculpe, sem permissão de acesso
+        <div>
+        </section>
+        @endif
 
 </html>
