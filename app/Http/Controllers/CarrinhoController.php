@@ -43,6 +43,7 @@ class CarrinhoController extends Controller
         
 
         $r->session()->put('carrinho',$lista);
+        $r->session()->put('qtdcarrinho',count($lista));
         $r->session()->put('soma',$soma);
          //$r->session()->flush();
     }
