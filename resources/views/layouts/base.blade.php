@@ -8,6 +8,7 @@
         <!-- arquivos para o bootstrap -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/buda.js') }}"></script>
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -43,13 +44,11 @@
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                    Opções
+                    Línguas
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Página 1</a>
-                    <a class="dropdown-item" href="#">Página 2</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Página 3</a>
+                    <a class="dropdown-item" href="javascript:trocarIdioma('pt')" >Português</a>
+                    <a class="dropdown-item" href="#" onclick="trocarIdioma('en');" >Inglês</a>
                 </div>
                 </li>
             </ul>
@@ -85,6 +84,7 @@
         </nav>
 
     </header>
+    <div id="google_translate_element" class="boxTradutor"></div>
         <section>
 
             @yield('content')
@@ -127,6 +127,7 @@
               <p class="direitos">Copyright © Todos os direitos reservados | feito por budinhas</p>
         	</div>
     </footer>
+    <script src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
     </body>
 
 </html>
