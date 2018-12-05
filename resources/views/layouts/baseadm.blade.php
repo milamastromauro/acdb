@@ -53,7 +53,7 @@
                       <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
                     </div>
                     <div id="logout" class="cart-area-claro">
-                      <a href="" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>
+                      <a href="logout" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>
                     </div>
                       @else
                       <div class="cart-area-claro">
