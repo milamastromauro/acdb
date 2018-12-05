@@ -69,7 +69,7 @@
                                         <p class="preco">R${{$produto['produto_valor']}},00</p>
                                           <!-- Comprar -->
                                           <div id="divcomprar" class="add-to-cart-btn">
-                                              <button id="btncomprar" class="btn comprar">Comprar</button>
+                                              <button id="btncomprar" class="btn comprar" value="{{ $produto['produto_id'] }}">Comprar</button>
                                           </div>
                                     </div>
                                 </div>
@@ -214,19 +214,48 @@
             </div>
 
 <script>
-window.onload = function() {
+/*window.onload = function() {
+*/
+let comprar = document.getElementById('btncomprar');
+let itensCart=document.getElementById('itensCart');
+let comprar2 = document.getElementById('divcomprar');
 
-			var comprar = document.getElementById('btncomprar');
-			var comprar2 = document.getElementById('divcomprar');
+console.log(itensCart.value);
 
+comprar.onclick = function(){
+	var request = new XMLHttpRequest();
+	request.open('GET', 'carrinho/'+comprar.value, true);
 
-			comprar.onclick = function(){
-
+	request.onload = function() {
+	  if (request.status >= 200 && request.status < 400) {
+	    // Deu certo
 			comprar.innerHTML = "<div>Produto adicionado</div>";
+			itensCart.innerHTML = parseInt(itensCart.textContent)+1;
 			setTimeout(function(){
-				comprar2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
-			}, 1000);
-		}
+			comprar2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
+		}, 1000);
+	  } else {
+	    // Deu erro
+			let comprarErro = document.getElementById('btncomprar');
+			let comprarErro2 = document.getElementById('divcomprar');
+			comprarErro.onclick = function(){
+				comprarErro.innerHTML = "<div>Ops! Tente de novo</div>";
+				setTimeout(function(){
+				comprarErro2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
+			}, 5000);
+			}
+
+	  }
+	};
+
+	request.onerror = function() {
+	  // There was a connection error of some sort
+	};
+
+	request.send();
+
+
 }
+
 </script>
 						    @endsection

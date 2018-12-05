@@ -34,7 +34,7 @@ class CrudController extends Controller
                         'produto_sku'=>$produto->skuProduto,
                         //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
                         'foto'=>$foto->localFoto);
-                        
+
                     }
                     return view('cadastraProdutos',
                     ['produto' => $lista ]);
@@ -47,14 +47,14 @@ class CrudController extends Controller
         } else { // é update!
             $produto = Produto::find($id);
         }
-            
+
         //$produto = new Produto;
         $produto->nomeProduto = $r->inputNome;
         $produto->estoqueProduto = $r->inputEstoque;
         $produto->skuProduto = $r->inputSku;
         $produto->valorProduto = $r->inputPreco;
         $produto->valorDescontoProduto = $r->inputPrecoDesconto;
-        $produto->descricaoProduto = $r->inputDescricao;   
+        $produto->descricaoProduto = $r->inputDescricao;
         if ($id==1) $produto->dataCriacaoProduto = date("Y-m-d H:i:s");
         $produto->dataAlteracaoProduto = date("Y-m-d H:i:s");
         if (isset($r->destaque)){
@@ -84,10 +84,10 @@ class CrudController extends Controller
             //se não foi enviada nenhuma foto nova, mantém a foto que já estava na array
             $foto->Produto_idProduto = $produto->idProduto;
             $foto->localFoto = $lista['foto'];
-            $foto->save(); 
+            $foto->save();
         }
     }
-     
+
         // return view('cadastraprodutos',['resultado' => "cadastro efetuado com sucesso"]);
         return redirect('/listaprodutos');
     }
@@ -102,7 +102,7 @@ class CrudController extends Controller
         if ($r->isMethod('get')){
             $produtos = Produto::all();
             foreach($produtos as $produto){
-                
+
                 $foto = $produto->Fotos()->first();
                 if (isset($foto)){
                         $lista[] = array('produto_id'=>$produto->idProduto,
@@ -115,7 +115,7 @@ class CrudController extends Controller
                     'produto_nome'=>$produto->nomeProduto,
                     'produto_valor'=>$produto->valorProduto);
                 }
-                
+
             }
         }
 
@@ -127,8 +127,9 @@ class CrudController extends Controller
     public function listaProdutosDestaque(Request $r){
         if ($r->isMethod('get')){
             $produtos = Produto::where('destaqueProduto', 1)->get();
+            $lista = [];
             foreach($produtos as $produto){
-                
+
                 $foto = $produto->Fotos()->first();
                 if (isset($foto)){
                         $lista[] = array('produto_id'=>$produto->idProduto,
@@ -141,7 +142,7 @@ class CrudController extends Controller
                     'produto_nome'=>$produto->nomeProduto,
                     'produto_valor'=>$produto->valorProduto);
                 }
-                
+
             }
         }
 
@@ -173,5 +174,5 @@ class CrudController extends Controller
             ['produtos'=>$listaadm]);
             //  var_dump($lista);
     }
-    
+
 }

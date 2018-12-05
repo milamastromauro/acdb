@@ -79,11 +79,11 @@
                     <!-- Carrinho -->
                     @if(null !== (Session::get('qtdcarrinho')))
                     <div class="cart-area">
-                            <a href="vercarrinho"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>{{ Session::get('qtdcarrinho') }}</span></a>
+                            <a href="vercarrinho"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span id="itensCart">{{ Session::get('qtdcarrinho') }}</span></a>
                     </div>
                     @else
                     <div class="cart-area">
-                            <a href="vercarrinho"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>0</span></a>
+                            <a href="vercarrinho"><i class="fas fa-shopping-bag" aria-hidden="true"></i> <span id="itensCart">0</span></a>
                     </div>
                     @endif
             </div>
