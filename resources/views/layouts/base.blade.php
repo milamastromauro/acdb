@@ -121,9 +121,9 @@
                 <div class="menu-secundario col-12 col-md-6">
                     <div class="">
                         <ul class="footer_menu mt-5">
-                            <li><a href="#">Entrega</a></li>
-                            <li><a href="#">Política de privacidade</a></li>
-                            <li><a href="#">Termos de uso</a></li>
+                            <li><a href="faq">Entrega</a></li>
+                            <li><a href="faq">Política de privacidade</a></li>
+                            <li><a href="faq">Termos de uso</a></li>
                         </ul>
                     </div>
                 </div>
