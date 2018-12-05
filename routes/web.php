@@ -21,7 +21,7 @@ Route::post('/cadastro', 'CredencialController@cadastro');
 Route::get('/login', 'CredencialController@login');
 Route::post('/login', 'CredencialController@login');
 
-// Route::get('/logout', 'CredencialController@logout');
+ Route::get('/logout', 'CredencialController@logout');
 
 Route::get('/cadastraprodutos/{par?}', 'CrudController@cadastraProdutos');
 Route::post('/cadastraprodutos/{par?}', 'CrudController@cadastraProdutos');

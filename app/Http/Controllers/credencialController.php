@@ -44,7 +44,7 @@ class CredencialController extends Controller
     public function logout(Request $req){
       if($req->isMethod('get')){
         $req->session()->flush();
-        return view('login');
+        return redirect('index');
       }
     }
 
