@@ -62,4 +62,16 @@ class CarrinhoController extends Controller
         // var_dump($soma);
         return view('carrinho', ['produtos'=>$produtos, 'soma'=>$soma, 'valorTotal'=>$valorTotal]);
     }
+
+    public function checkout(Request $r){
+        //se tem seção
+        if (null !== ($r->session()->get('nome'))){
+            //salva no banco pedido, atrelado ao usuário
+            //encaminha para página de sucesso
+        }
+        else {
+            return redirect('cadastro');
+        }
+    }
+
 }

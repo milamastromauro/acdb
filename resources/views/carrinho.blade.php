@@ -126,7 +126,7 @@
       <div class="row justify-content-end">
         <div class="textoalinhadodireita col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
 
-            <button class="button_buy align-self-end" type="button" name="comprar"><b>COMPRAR</b></button>
+            <a href="checkout" class="button_buy align-self-end"  name="comprar"><b>COMPRAR</b></a>
         </div>
       </div>
     </section>

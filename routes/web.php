@@ -48,3 +48,5 @@ Route::get('/apagaproduto/{item}', 'CrudController@apagaProduto');
 Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 
 Route::get('/adm', 'CrudController@listaProdutosAdm');
+
+Route::get('/checkout', 'CarrinhoController@checkout');
