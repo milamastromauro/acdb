@@ -100,7 +100,10 @@ class CredencialController extends Controller
         $endereco->Cep = $r->cep;
         $endereco->save();
 
+        //forçando o login
 
+            $r->session()->put('nome', $cliente->nomeCliente);
+            $r->session()->put('adm', $cliente->admin);
 
 
 
