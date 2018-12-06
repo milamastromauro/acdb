@@ -102,9 +102,12 @@ class CredencialController extends Controller
 
         //forçando o login
 
-            $r->session()->put('nome', $cliente->nomeCliente);
-            $r->session()->put('adm', $cliente->admin);
+        $r->session()->put('nome', $cliente->nomeCliente);
+        $r->session()->put('adm', $cliente->admin);
 
+        if (null !== ($r->session()->get('carrinho'))){
+            return redirect('carrinho');
+        }    
 
 
         return view('cadastro',['resultado' => "cadastro efetuado com sucesso"]);

@@ -67,7 +67,7 @@ class CarrinhoController extends Controller
         //se tem seção
         if (null !== ($r->session()->get('nome'))){
             //salva no banco pedido, atrelado ao usuário
-            //encaminha para página de sucesso
+            //encaminha para página de sucesso (ainda precisa construir)
         }
         else {
             return redirect('cadastro');
