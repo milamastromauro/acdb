@@ -38,10 +38,10 @@ class CarrinhoController extends Controller
         }
         array_push($lista, $arrayproduto);
         //var_dump($lista);
-        
 
 
-        
+
+
 
         $r->session()->put('carrinho',$lista);
         $r->session()->put('qtdcarrinho',count($lista));
@@ -72,6 +72,11 @@ class CarrinhoController extends Controller
         else {
             return redirect('cadastro');
         }
+    }
+
+    public function limparCarrinho(Request $r){
+      $r->session()->get('carrinho');
+      $r->session()->forget('produto_id');
     }
 
 }
