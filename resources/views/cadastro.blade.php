@@ -52,7 +52,7 @@
 
 									<div class="form-group col-md-9">
 											<label for="cpf_cnpj">CPF/CNPJ</label>
-											<input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" placeholder="CPF/CNPJ (somente números)" required>
+											<input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" maxlength="18" placeholder="CPF/CNPJ (somente números)" required>
 											<div class="invalid-feedback">
 												campo obrigatório
 														</div>
@@ -141,7 +141,7 @@
 
 							<div class="form-group col-md-2">
 								<label for="cep">Cep</label>
-								<input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" required>
+								<input type="text" class="form-control" id="cep" name="cep" maxlength="9" placeholder="CEP" required>
 								<div class="invalid-feedback">
 									campo obrigatório
 								</div>
@@ -158,7 +158,7 @@
 								</label>
 							</div>
 						</div>
-						
+
 						<button type="submit" class="btn btn-primary">Cadastrar</button>
 				</form>
 				<div class="retorno">@isset($resultado)
@@ -228,21 +228,171 @@ window.onload = function() {
 			request.send();
 	}
 
-	//Máscara da data de Nascimento
-	var datanasc = document.getElementById('data_nasc');
-	console.log(datanasc);
+	//Validações
 
-				datanasc.onkeyup = function mascaraData(){
-						if (datanasc.value.length == 2){
-							datanasc.value = datanasc.value + '/';
+				//Nome e sobrenome
 
-						return true;
+						var nomeCliente = document.getElementById('registroNome');
+
+						nomeCliente.onfocus = function(){
+							nomeCliente.style.borderColor ="red";
+							nomeCliente.onkeyup = function(){
+							if(nomeCliente.value!==""){
+								nomeCliente.style.borderColor ="green";
+							}
+							}
 						}
-						if (datanasc.value.length == 5){
-						datanasc.value = datanasc.value + '/';
-						return true;
+
+						var sobrenomeCliente = document.getElementById('registroSobrenome');
+
+						sobrenomeCliente.onfocus = function(){
+							sobrenomeCliente.style.borderColor ="red";
+							sobrenomeCliente.onkeyup = function(){
+							if(sobrenomeCliente.value!==""){
+								sobrenomeCliente.style.borderColor ="green";
+							}
+							}
 						}
-					}
+
+						//CPF
+						var cpfcnpj = document.getElementById('cpfcnpj');
+						var nroDoc = document.getElementById('registroCpfCnpj');
+
+						//Máscaras CPF/CNPJ
+						nroDoc.onkeyup = function(){
+							if(cpfcnpj.value == 0) {
+								nroDoc.maxLength = 14;
+
+								if(nroDoc.value.length == 3) {
+									nroDoc.value = nroDoc.value+'.';
+								}
+								if(nroDoc.value.length == 7) {
+									nroDoc.value = nroDoc.value+'.';
+								}
+								if(nroDoc.value.length == 11) {
+									nroDoc.value = nroDoc.value+'-';
+								}
+
+								} else {
+									nroDoc.maxLength = 18;
+								if(nroDoc.value.length == 2) {
+									nroDoc.value = nroDoc.value+'.';
+								}
+								if(nroDoc.value.length == 6) {
+									nroDoc.value = nroDoc.value+'.';
+								}
+								if(nroDoc.value.length == 10) {
+									nroDoc.value = nroDoc.value+'/';
+								}
+								if(nroDoc.value.length == 15) {
+									nroDoc.value = nroDoc.value+'-';
+								}
+							}
+						}
+
+						nroDoc.onkeydown = function() {
+							if (cpfcnpj.value == "1") {
+								// console.log(`digitei`)
+								if (nroDoc.value.length < 18) {
+									nroDoc.style.borderColor ="red";
+								} else {
+									nroDoc.style.borderColor ="green";
+								}
+							} if (cpfcnpj.value == "0") {
+								if (nroDoc.value.length < 14) {
+									nroDoc.style.borderColor ="red";
+								} else {
+									nroDoc.style.borderColor ="green";
+								}
+							}
+
+						}
+
+						//E-mail e senha
+
+						var email = document.getElementById('registroEmail');
+						var pass = document.getElementById('registroSenha');
+						var passConf = document.getElementById('registroSenhaConf');
+
+						email.onfocus = function(){
+							email.style.borderColor ="red";
+							email.onkeyup = function(){
+							if(email.value!==""){
+								email.style.borderColor ="green";
+							}
+							}
+						}
+
+						pass.onfocus = function(){
+								pass.style.borderColor ="red";
+							}
+						pass.onkeydown = function(){
+								if(pass.value.length>=8){
+								email.style.borderColor ="green";
+							}
+							}
+
+						passConf.onfocus = function(){
+							passConf.style.borderColor = "red";
+						}
+						passConf.onkeydown = function(){
+							if(passConf.value.length === pass.value.length){
+								passConf.style.borderColor = "green";
+							}
+							}
+
+						// Endereço, complemento, CEP
+							var endereco = document.getElementById('inputAddress');
+							var complemento = document.getElementById('inputAddress2');
+							var cep = document.getElementById('cep');
+
+							endereco.onfocus = function(){
+								endereco.style.borderColor ="red";
+								endereco.onkeyup = function(){
+								if(endereco.value!==""){
+									endereco.style.borderColor ="green";
+								}
+								}
+							}
+
+							complemento.onfocus = function(){
+								complemento.style.borderColor ="red";
+								complemento.onkeyup = function(){
+								if(complemento.value!==""){
+									complemento.style.borderColor ="green";
+								}
+								}
+							}
+
+							//Validação e máscara
+							cep.onfocus = function(){
+								cep.style.borderColor ="red";
+								cep.onkeyup = function(){
+								if(cep.value.length==5){
+									cep.value = cep.value+'-';
+									cep.style.borderColor ="green";
+								}
+								}
+							}
+
+						//Máscaras
+
+						//Data Nascimento
+						var datanasc = document.getElementById('data_nasc');
+
+							datanasc.onkeyup = function mascaraData(){
+									if (datanasc.value.length == 2){
+										datanasc.value = datanasc.value + '/';
+
+										return true;
+									}
+									if (datanasc.value.length == 5){
+										datanasc.value = datanasc.value + '/';
+										return true;
+									}
+								}
+
+
 				}
 </script>
 @endsection
