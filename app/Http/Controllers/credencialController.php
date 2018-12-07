@@ -35,7 +35,7 @@ class CredencialController extends Controller
             }
 
             if($usuario->senhaCliente == password_verify($s->input('senha'), $usuario->senhaCliente)){
-                return view('index', ['respostalogin' => "login correto", 'nomeCliente' => $nomeCliente]);
+                return view('login', ['respostalogin' => "login correto", 'nomeCliente' => $nomeCliente]);
             }
             else return view('login', ['respostalogin' => "login incorreto"]);
         }
@@ -57,8 +57,8 @@ class CredencialController extends Controller
         $validator = Validator::make($r->all(), [
           'nome' => 'required',
           'sobrenome' => 'required',
-          'cpf_cnpj' => 'required',
           'emailCliente' => 'email|required|unique:cliente',
+          'cpf_cnpj' => 'required',
           'senha' => 'required|min:8|confirmed',
           'endereco' => 'required',
           'cidade' => 'required',
@@ -101,11 +101,17 @@ class CredencialController extends Controller
         $endereco->Cep = $r->cep;
         $endereco->save();
 
+        //forçando o login
+
+        $r->session()->put('nome', $cliente->nomeCliente);
+        $r->session()->put('adm', $cliente->admin);
+
+        if (null !== ($r->session()->get('carrinho'))){
+            return redirect('carrinho');
+        }
 
 
-
-
-        return view('index',['resultado' => "cadastro efetuado com sucesso"]);
+        return view('cadastro',['resultado' => "cadastro efetuado com sucesso"]);
     }
 
 }
