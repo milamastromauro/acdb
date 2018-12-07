@@ -1015,19 +1015,55 @@ margin-left: 30px;
   left: 85px;
   top: 33px;
 }
-.button_buy{
-  background-color: #6BD545;
+
+
+.button_cancel{
+  background-color: #e1f4ec;
+  color: black;
   padding: 3px 40px;
-  font-size: 20px;
+  font-size: 14px;
   margin-top: 3px;
   margin-bottom: 10px;
   border:none;
+  font-weight: lighter;
   text-decoration: none;
   font-style: 'Ubuntu';
+  margin-left: 18%;
+}
+
+.button_buy{
+  background-color: #67efb7;
+  color: black;
+  padding: 3px 40px;
+  font-size: 18px;
+  margin: 3px 240px 5px 61%;
+  border:none;
+  text-decoration: none;
+  font-style: 'Ubuntu';
+  display: block;
+      width: 150px;
 }
 .botao_config {
   padding: 5px;
   margin: 0px 5px 5px 5px;
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+  font-style: 'Ubuntu';
+  line-height: initial;
+
+}
+.alinhamento_final{
+  margin-right: 106px;
+}
+.botao_config2 {
+  width: 100%;
+  height:30px;
+  padding: 5px;
+
   border-radius: 2px;
   background-color:	#46525E;
   color: #FFFFFF;
@@ -1048,16 +1084,32 @@ margin-left: 30px;
   box-shadow: 0;
 }
 
-.validar_cupom{
+.validar_cupom.button_valida{
   padding: 3px;
   margin: 2px;
+  height:30px;
+  line-height: initial;
+  background: #46525E;
+  color: white;
+  border: none;
+}
+.validar_cep {
+  width: 30% !important;
+  text-align: left !important;
+}
+.espaco_validar{
+  margin-right: 120px;
+  margin-top: 20px;
 }
 
+.fonte_titulo_elementos{
+  font-weight: lighter;
+}
 .margin_prd{
   margin-bottom: 5px;
 }
 .fundoelementoscarrinho{
-  background-color: #eff1f4;
+  background-color: #ececec;
 
 }
 
@@ -1067,7 +1119,7 @@ margin-left: 30px;
 }
 
 .textocentralizado{
-  line-height: 68px;
+  line-height: 36px;
 }
 .textocentral{
   line-height: 30px;
@@ -1100,14 +1152,13 @@ margin-left: 30px;
   .textoalinhadodireita{
     text-align: left;
   }
-  .button_buy{
-    margin: 3px auto 5px;
-    display: block;
-  }
-  .inputvalidar_cupom{
-    width: 100%
-  }
-  .valortotalprod{
-    line-height: 20px;
+
+}
+.inputvalidar_cupom{
+  width: 73%;
+  height:30px;
+}
+.valortotalprod{
+  line-height: 20px;
 }
 /*fim*/

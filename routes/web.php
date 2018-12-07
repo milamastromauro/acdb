@@ -28,8 +28,6 @@ Route::post('/cadastraprodutos/{par?}', 'CrudController@cadastraProdutos');
 
 Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 
-Route::view('/carrinho', 'carrinho');
-
 Route::get('/categoria', 'CrudController@listaProdutos');
 Route::get('/index', 'CrudController@listaProdutosDestaque');
 
