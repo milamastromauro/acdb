@@ -60,6 +60,8 @@ class CredencialController extends Controller
           'emailCliente' => 'email|required|unique:cliente',
           'cpf_cnpj' => 'required',
           'senha' => 'required|min:8|confirmed',
+          'data_nasc' => 'required',
+          'genero' => 'required',
           'endereco' => 'required',
           'cidade' => 'required',
           'estado' => 'required',
@@ -67,10 +69,23 @@ class CredencialController extends Controller
           'termos' => 'accepted'
         ]);
 
+        //persistência de dados
+
+        $r->session()->flash('nome',
+        'sobrenome',
+        'emailCliente',
+        'cpf_cnpj',
+        'endereco',
+        'data_nasc',
+        'genero',
+        'estado',
+        'cidade',
+        'cep');
+
         if ($validator->fails()) {
-          return redirect('cadastro')
+          return redirect()->back()
                         ->withErrors($validator)
-                        ->withInput();
+                        ->withInput($r->except('senha'));
         exit;
         }
 

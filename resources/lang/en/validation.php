@@ -151,6 +151,8 @@ return [
       'emailCliente' => 'e-mail',
       'senha' => 'senha',
       'senha_confirmation' => 'confirmação de senha',
+      'data_nasc' => 'data de nascimento',
+      'genero' => 'gênero',
       'endereco' => 'endereço',
       'complemento' => 'complemento',
       'cidade' => 'cidade',

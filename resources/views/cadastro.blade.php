@@ -25,7 +25,7 @@
 						<div id="formcadastro" class="form-row">
 							<div class="form-group col-md-6">
 								<label for="registroNome">Nome</label>
-								<input type="text" class="form-control" id="registroNome" name="nome" placeholder="Nome" required>
+								<input type="text" class="form-control" id="registroNome" name="nome" value="{{ old('nome') }}" placeholder="Nome" required>
 								<div class="invalid-feedback">
 									campo obrigatório
 							</div>
@@ -33,7 +33,7 @@
 
 								<div class="form-group col-md-6">
 									<label for="registroSobrenome">Sobrenome</label>
-									<input type="text" class="form-control" id="registroSobrenome" name="sobrenome" placeholder="Sobrenome" required>
+									<input type="text" class="form-control" id="registroSobrenome" name="sobrenome" value="{{ old('sobrenome') }}" placeholder="Sobrenome" required>
 									<div class="invalid-feedback">
 										campo obrigatório
 												</div>
@@ -52,7 +52,7 @@
 
 									<div class="form-group col-md-9">
 											<label for="cpf_cnpj">CPF/CNPJ</label>
-											<input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" maxlength="18" placeholder="CPF/CNPJ (somente números)" required>
+											<input type="text" class="form-control" id="registroCpfCnpj" name="cpf_cnpj" maxlength="18" value="{{ old('cpf_cnpj') }}" placeholder="CPF/CNPJ (somente números)" required>
 											<div class="invalid-feedback">
 												campo obrigatório
 														</div>
@@ -62,7 +62,7 @@
 
 							<div class="form-group col-md-6">
 								<label for="registroEmail">E-mail</label>
-								<input type="email" class="form-control" id="registroEmail" name="emailCliente" placeholder="E-mail" required>
+								<input type="email" class="form-control" id="registroEmail" name="emailCliente" value="{{ old('emailCliente') }}" placeholder="E-mail" required>
 								<div class="invalid-feedback">
 									campo obrigatório
 								</div>
@@ -85,7 +85,7 @@
 						<!-- </div> -->
 						<div class="form-group col-md-4">
 							<label for="data_nasc">Data de Nascimento</label>
-							<input type="date" class="form-control" id="data_nasc" name="data_nasc" maxlength="10" placeholder="DD/MM/AAAA" required>
+							<input type="date" class="form-control" id="data_nasc" name="data_nasc" maxlength="10" value="{{ old('data_nasc') }}" placeholder="DD/MM/AAAA" required>
 							<div class="invalid-feedback">
 								campo obrigatório
 							</div>
@@ -105,7 +105,7 @@
 
 						<div class="form-group col-md-6">
 							<label for="endereco">Endereço</label>
-							<input type="text" class="form-control" id="inputAddress" name="endereco" placeholder="Endereco">
+							<input type="text" class="form-control" id="inputAddress" name="endereco" value="{{ old('endereco') }}" placeholder="Endereco">
 							<div class="invalid-feedback">
 								campo obrigatório
 							</div>
@@ -113,7 +113,7 @@
 
 						<div class="form-group col-md-6">
 							<label for="complemento">Complemento</label>
-							<input type="text" class="form-control" id="inputAddress2" name="complemento" placeholder="Complemento">
+							<input type="text" class="form-control" id="inputAddress2" name="complemento" value="{{ old('complemento') }}" placeholder="Complemento">
 							<div class="invalid-feedback">
 								campo obrigatório
 							</div>
@@ -141,7 +141,7 @@
 
 							<div class="form-group col-md-2">
 								<label for="cep">Cep</label>
-								<input type="text" class="form-control" id="cep" name="cep" maxlength="9" placeholder="CEP" required>
+								<input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="{{ old('cep') }}" placeholder="CEP" required>
 								<div class="invalid-feedback">
 									campo obrigatório
 								</div>
@@ -325,17 +325,15 @@ window.onload = function() {
 
 						pass.onfocus = function(){
 								pass.style.borderColor ="red";
-							}
-						pass.onkeydown = function(){
 								if(pass.value.length>=8){
 								email.style.borderColor ="green";
 							}
-							}
+						}
 
 						passConf.onfocus = function(){
 							passConf.style.borderColor = "red";
 						}
-						passConf.onkeydown = function(){
+						passConf.onkeyup = function(){
 							if(passConf.value.length === pass.value.length){
 								passConf.style.borderColor = "green";
 							}
