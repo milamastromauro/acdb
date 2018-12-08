@@ -25,8 +25,12 @@ class CredencialController extends Controller
 
             $nome = $usuario->nomeCliente;
             $adm = $usuario->admin;
+            $idcliente = $usuario->idCliente;
+            $s->session()->put('idcliente', $idcliente);
             $s->session()->put('nome', $nome);
             $s->session()->put('adm', $adm);
+            
+
             $nomeCliente = $s->session()->get('nome');
 
             $lembrar = $s->input('form-check-input');
@@ -120,6 +124,9 @@ class CredencialController extends Controller
 
         $r->session()->put('nome', $cliente->nomeCliente);
         $r->session()->put('adm', $cliente->admin);
+
+        $idcliente = $usuario->idCliente;
+        $r->session()->put('idcliente', $idcliente);
 
         if (null !== ($r->session()->get('carrinho'))){
             return redirect('carrinho');

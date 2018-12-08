@@ -8,6 +8,8 @@ use Illuminate\http\request;
 use Illuminate\Support\Facades\DB;
 use App\Cliente as Cliente;
 use App\Produto as Produto;
+use App\Pedido as Pedido;
+use App\Item as Item;
 
 class CarrinhoController extends Controller
 {
@@ -41,8 +43,6 @@ class CarrinhoController extends Controller
 
 
 
-
-
         $r->session()->put('carrinho',$lista);
         $r->session()->put('qtdcarrinho',count($lista));
         $r->session()->put('soma',$soma);
@@ -66,8 +66,34 @@ class CarrinhoController extends Controller
     public function checkout(Request $r){
         //se tem seção
         if (null !== ($r->session()->get('nome'))){
+
             //salva no banco pedido, atrelado ao usuário
             //encaminha para página de sucesso (ainda precisa construir)
+            $pedido = new Pedido;
+        $pedido->dataPedido = date("Y-m-d H:i:s");
+        $pedido->Cliente_idCliente = session()->get('idcliente');
+        $pedido->valorPedido = session()->get('soma');
+        $pedido->Pagamento_idPagamento = 1;
+        $pedido->StatusPedido_idStatusPedido = 1;
+        $pedido->Entrega_idEntrega = 1;
+        $pedido->save();
+
+        $produtos = $r->session()->get('carrinho');
+        foreach($produtos as $produto){
+            $item = new Item;
+            $item->Pedido_idPedido = $pedido->idPedido;
+            $item->Carrinho_idCarrinho = 0;
+            $item->Produto_idProduto = $produto['produto_valor'];
+            $item->save();
+        }
+
+        $r->session()->forget('carrinho');
+        $r->session()->forget('qtdcarrinho');
+        //se for mostrar os dados no sucesso, mover esses forget para esse controller
+
+        return "sucesso";
+
+
         }
         else {
             return redirect('cadastro');
