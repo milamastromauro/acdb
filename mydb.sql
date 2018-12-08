@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2018 at 12:40 AM
+-- Generation Time: Dec 08, 2018 at 03:30 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -93,7 +93,7 @@ INSERT INTO `cliente` (`idCliente`, `nomeCliente`, `sobrenomeCliente`, `emailCli
 (20, 'Laura', 'Peres', 'laura@mail.com', '$2y$10$3NZqpy.WPS.ubdMXeMyFZuydk/YCB2VcMbybrWrT8B1fHQdiOlU76', 0, '33333333333', NULL, NULL, '2018-12-01', NULL, NULL, NULL, NULL),
 (21, 'Pedro Henrique', 'Peres', 'php@mail.com', '$2y$10$oTQgIzbnwObwe61Bu/sRZ.Z1SPkULHWhqa4zqkG1tq3j1hCYgpIzy', 0, '00314246860', NULL, NULL, '2018-12-01', NULL, NULL, NULL, NULL),
 (22, 'Mariana', 'Rente', 'mariana@mail.com', '$2y$10$JzxlwqwkRqK8RD69qEwniOs6oNNbFRrEStZ687YS76L6amx5rCusC', 0, '12345678910', NULL, NULL, '2018-12-03', NULL, NULL, '1987-10-04', 'F'),
-(23, 'Dinara', 'Lima', 'dinara@dig.com', '$2y$10$a98la4HqsHCDH5vs3IldN.brZmeLvAyMWnPW/JsHlRDYhAJt8sIem', 0, '04561153', NULL, NULL, '2018-12-03', NULL, NULL, '1989-02-10', 'F');
+(23, 'Dinara', 'Lima', 'dinara@dig.com', '$2y$10$a98la4HqsHCDH5vs3IldN.brZmeLvAyMWnPW/JsHlRDYhAJt8sIem', 0, '04561153', NULL, NULL, '2018-12-03', NULL, 1, '1989-02-10', 'F');
 
 -- --------------------------------------------------------
 
@@ -3015,8 +3015,25 @@ INSERT INTO `innodb_table_stats` (`database_name`, `table_name`, `last_update`, 
 CREATE TABLE `item` (
   `Pedido_idPedido` int(10) UNSIGNED NOT NULL,
   `Produto_idProduto` int(11) NOT NULL,
-  `Carrinho_idCarrinho` int(11) NOT NULL
+  `Carrinho_idCarrinho` int(11) NOT NULL,
+  `idItem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`Pedido_idPedido`, `Produto_idProduto`, `Carrinho_idCarrinho`, `idItem`) VALUES
+(2, 40, 0, 1),
+(2, 40, 0, 2),
+(3, 40, 0, 3),
+(3, 40, 0, 4),
+(4, 40, 0, 5),
+(4, 40, 0, 6),
+(6, 40, 0, 7),
+(7, 40, 0, 8),
+(8, 40, 0, 9),
+(8, 40, 0, 10);
 
 -- --------------------------------------------------------
 
@@ -3059,10 +3076,25 @@ CREATE TABLE `pedido` (
   `dataPedido` date DEFAULT NULL,
   `valorPedido` float DEFAULT NULL,
   `Pedidocol` varchar(45) DEFAULT NULL,
+  `Cliente_idCliente` int(11) NOT NULL,
   `Pagamento_idPagamento` int(11) NOT NULL,
   `StatusPedido_idStatusPedido` int(11) NOT NULL,
   `Entrega_idEntrega` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pedido`
+--
+
+INSERT INTO `pedido` (`idPedido`, `dataPedido`, `valorPedido`, `Pedidocol`, `Cliente_idCliente`, `Pagamento_idPagamento`, `StatusPedido_idStatusPedido`, `Entrega_idEntrega`) VALUES
+(1, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(2, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(3, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(4, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(5, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(6, '2018-12-08', 120, NULL, 23, 1, 1, 1),
+(7, '2018-12-08', 160, NULL, 23, 1, 1, 1),
+(8, '2018-12-08', 240, NULL, 23, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3422,7 +3454,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
-(1, 0, 'Camiseta', 1, NULL, 40, 30, 'Camiseta básica', NULL, NULL, '2018-11-29', NULL),
+(1, 1, 'Camiseta', 1, '22', 40, 30, 'Camiseta básica', NULL, '2018-12-04', '2018-12-04', NULL),
 (3, 1, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL),
 (4, 0, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL);
 
@@ -3901,6 +3933,12 @@ ALTER TABLE `innodb_table_stats`
   ADD PRIMARY KEY (`database_name`,`table_name`);
 
 --
+-- Indexes for table `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`idItem`);
+
+--
 -- Indexes for table `ndb_binlog_index`
 --
 ALTER TABLE `ndb_binlog_index`
@@ -4202,6 +4240,12 @@ ALTER TABLE `foto`
   MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `item`
+--
+ALTER TABLE `item`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `pagamento`
 --
 ALTER TABLE `pagamento`
@@ -4211,7 +4255,7 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pma__bookmark`
