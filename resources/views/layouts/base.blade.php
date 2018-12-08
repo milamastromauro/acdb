@@ -66,7 +66,7 @@
                     <!-- Área de login -->
                     @if(null !== (Session::get('nome')))
                     <div id="logado" class="cart-area">
-                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
+                      <a href="index" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
                     </div>
                     <div id="logout" class="cart-area">
                       <a href="logout" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>

@@ -11,7 +11,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h1>Camisetas</h1>
+                        <h1>Produtos</h1>
                     </div>
                 </div>
             </div>
