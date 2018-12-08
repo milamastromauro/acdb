@@ -64,39 +64,50 @@ class CarrinhoController extends Controller
     }
 
     public function checkout(Request $r){
-        //se tem seção
-        if (null !== ($r->session()->get('nome'))){
+        //se tem carrinho
+        if (null !== ($r->session()->get('carrinho'))){
+            //se tem seção
+            if (null !== ($r->session()->get('nome'))){
 
-            //salva no banco pedido, atrelado ao usuário
-            //encaminha para página de sucesso (ainda precisa construir)
+                //salva no banco pedido, atrelado ao usuário
+                //encaminha para página de sucesso (ainda precisa construir)
             $pedido = new Pedido;
-        $pedido->dataPedido = date("Y-m-d H:i:s");
-        $pedido->Cliente_idCliente = session()->get('idcliente');
-        $pedido->valorPedido = session()->get('soma');
-        $pedido->Pagamento_idPagamento = 1;
-        $pedido->StatusPedido_idStatusPedido = 1;
-        $pedido->Entrega_idEntrega = 1;
-        $pedido->save();
+            $pedido->dataPedido = date("Y-m-d H:i:s");
+            $pedido->Cliente_idCliente = session()->get('idcliente');
+            $pedido->valorPedido = session()->get('soma');
+            $pedido->Pagamento_idPagamento = 1;
+            $pedido->StatusPedido_idStatusPedido = 1;
+            $pedido->Entrega_idEntrega = 1;
+            $pedido->save();
 
-        $produtos = $r->session()->get('carrinho');
-        foreach($produtos as $produto){
-            $item = new Item;
-            $item->Pedido_idPedido = $pedido->idPedido;
-            $item->Carrinho_idCarrinho = 0;
-            $item->Produto_idProduto = $produto['produto_valor'];
-            $item->save();
-        }
+            $produtos = $r->session()->get('carrinho');
+            foreach($produtos as $produto){
+                $item = new Item;
+                $item->Pedido_idPedido = $pedido->idPedido;
+                $item->Carrinho_idCarrinho = 0;
+                $item->Produto_idProduto = $produto['produto_valor'];
+                $item->save();
+            }
 
-        $r->session()->forget('carrinho');
-        $r->session()->forget('qtdcarrinho');
-        //se for mostrar os dados no sucesso, mover esses forget para esse controller
+            $nomecliente = $r->session()->get('nome');
 
-        return "sucesso";
+            $r->session()->forget('carrinho');
+            $r->session()->forget('qtdcarrinho');
+            $r->session()->forget('soma');
+            //se for mostrar os dados no sucesso, mover esses forget para esse controller
+
+            return view('sucessocompra',['pedido' => $pedido, 
+            'produtos' => $produtos]);
+            
 
 
+            }
+            else {
+                return redirect('cadastro');
+            }
         }
         else {
-            return redirect('cadastro');
+            return redirect('/');
         }
     }
 

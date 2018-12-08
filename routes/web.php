@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Route::get('/cadastro', 'CredencialController@cadastro');
 Route::post('/cadastro', 'CredencialController@cadastro');
 
@@ -30,6 +26,7 @@ Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 
 Route::get('/categoria', 'CrudController@listaProdutos');
 Route::get('/index', 'CrudController@listaProdutosDestaque');
+Route::get('/', 'CrudController@listaProdutosDestaque');
 
 
 
