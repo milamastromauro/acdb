@@ -175,4 +175,33 @@ class CrudController extends Controller
             //  var_dump($lista);
     }
 
+    public function buscaProdutos(Request $r){
+        $lista  = [];
+        if ($r->isMethod('post')){
+            $termo = $r->input('pesquisa');
+            $produtos = Produto::where('nomeProduto', 'like', '%' . $termo . '%')->get();
+            foreach($produtos as $produto){
+
+                $foto = $produto->Fotos()->first();
+                if (isset($foto)){
+                        $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto,
+                    'foto'=>$foto->localFoto);
+                }
+                else{
+                    $lista[] = array('produto_id'=>$produto->idProduto,
+                    'produto_nome'=>$produto->nomeProduto,
+                    'produto_valor'=>$produto->valorProduto);
+                }
+
+            }
+        }
+
+            return view('resultados',
+            ['produtos'=>$lista,
+            'termo'=> $termo]);
+            // var_dump($lista);
+    }
+
 }

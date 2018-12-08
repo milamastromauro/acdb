@@ -57,8 +57,9 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                     <!-- Search Area -->
                     <div class="search-area">
-                            <form action="#" method="post">
-                                    <input type="search" name="search" id="headerSearch" placeholder="Pesquisar">
+                            <form action="pesquisa" method="post">
+                                    {!! csrf_field()!!}
+                                    <input type="search" name="pesquisa" id="headerSearch" placeholder="Pesquisar">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
                     </div>

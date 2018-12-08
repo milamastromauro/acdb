@@ -686,6 +686,11 @@ p.direitos{
 
 }
 
+/*busca*/
+div.buscavazia{
+  display: block;
+}
+
 .pcheckout{
   margin-top: 30px;
   font-size: 30px;

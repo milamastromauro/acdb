@@ -45,3 +45,5 @@ Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 Route::get('/adm', 'CrudController@listaProdutosAdm');
 
 Route::get('/checkout', 'CarrinhoController@checkout');
+
+Route::post('/pesquisa', 'CrudController@buscaProdutos');
