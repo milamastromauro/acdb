@@ -35,6 +35,16 @@
                         <label for="inputDescricao">Descrição</label>
                         <input type="text" class="form-control" id="inputDescricao" name="inputDescricao" placeholder="Descrição do produto">
                     </div>
+                    <div class="form-group">
+                        <label for="inputCategoria">Categoria</label>
+                        <select class="form-control" id="inputCategoria" name="inputCategoria">
+                            @forelse($categorias as $categoria)
+                            <option value="{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</option>
+                            @empty
+                            <option value=""></option>
+                            @endforelse
+                        </select>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="uploadFoto">Foto do produto</label>
@@ -82,6 +92,16 @@
                     <div class="form-group">
                         <label for="inputDescricao">Descrição</label>
                         <input type="text" class="form-control" id="inputDescricao" name="inputDescricao" placeholder="Descrição do produto" value="{{ $produto['produto_descricao'] }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCategoria">Categoria</label>
+                        <select class="form-control" id="inputCategoria" name="inputCategoria">
+                            @forelse($categorias as $categoria)
+                            <option value="{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</option>
+                            @empty
+                            <option value=""></option>
+                            @endforelse
+                        </select>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">

@@ -8,22 +8,40 @@ use Illuminate\http\request;
 use Illuminate\Support\Facades\DB;
 use App\Produto as Produto;
 use App\Foto as Foto;
+use App\Categoria as Categoria;
+use App\ProdutoCategoria as ProdutoCategoria;
 
 class CrudController extends Controller
 {
-
     public function cadastraProdutos($id=0, Request $r){
+        $lista = [];
+        $categorias = Categoria::all();
         if ($r->isMethod('get')){
             //sendo get sem id, é cadastro novo
             if($id==0){
-                return view('cadastraProdutos', ['insert' => 1]);
+                return view('cadastraProdutos', ['insert' => 1, 'categorias' => $categorias]);
             }
             else{
                 //tendo id, é pedido de update de um produto existente
                 $produto = Produto::find($id);
+                // var_dump($produto);
+                // return $produto;
                 //$produtos = Produto::all();
-                    $fotos = $produto->Fotos()->get();
-                    foreach($fotos as $foto){
+                $foto = $produto->Fotos()->first();
+                    if (isset($foto)){
+
+                            $lista = array('produto_id'=>$produto->idProduto,
+                            'produto_nome'=>$produto->nomeProduto,
+                            'produto_valor'=>$produto->valorProduto,
+                            'produto_desconto'=>$produto->valorDescontoProduto,
+                            'produto_descricao'=>$produto->descricaoProduto,
+                            'produto_destaque'=>$produto->destaqueProduto,
+                            'produto_estoque'=>$produto->estoqueProduto,
+                            'produto_sku'=>$produto->skuProduto,
+                            //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
+                            'foto'=>$foto->localFoto);
+                    }
+                    else{
                         $lista = array('produto_id'=>$produto->idProduto,
                         'produto_nome'=>$produto->nomeProduto,
                         'produto_valor'=>$produto->valorProduto,
@@ -31,13 +49,12 @@ class CrudController extends Controller
                         'produto_descricao'=>$produto->descricaoProduto,
                         'produto_destaque'=>$produto->destaqueProduto,
                         'produto_estoque'=>$produto->estoqueProduto,
-                        'produto_sku'=>$produto->skuProduto,
-                        //fazendo galeria no futuro, puxar array de fotos e setar qual é destaque
-                        'foto'=>$foto->localFoto);
-
+                        'produto_sku'=>$produto->skuProduto);
                     }
+
+
                     return view('cadastraProdutos',
-                    ['produto' => $lista ]);
+                    ['produto' => $lista , 'categorias' => $categorias ]);
                 }
             }
 
@@ -61,6 +78,10 @@ class CrudController extends Controller
             $produto->destaqueProduto = true;
         }
         $produto->save();
+        $produtocategoria = new ProdutoCategoria;
+        $produtocategoria->Produto_idProduto = $produto->idProduto;
+        $produtocategoria->Categoria_idCategoria = $r->inputCategoria;
+        $produtocategoria->save();
 
     //subindo a foto e colocando em uma tabela estrangeira
     $nameFile = null;
