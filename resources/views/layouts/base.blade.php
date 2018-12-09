@@ -34,10 +34,7 @@
                 <a class="nav-link" href="index">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="categoria">Masculino</a>
-                </li>
-                    <li class="nav-item">
-                <a class="nav-link" href="categoria">Feminino</a>
+                <a class="nav-link" href="categoria">Produtos</a>
                 </li>
                     <li class="nav-item">
                 <a class="nav-link" href="contato">Contato</a>
