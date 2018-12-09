@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 04:00 AM
+-- Generation Time: Dec 09, 2018 at 05:22 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -353,7 +353,13 @@ CREATE TABLE `foto` (
 INSERT INTO `foto` (`idFoto`, `localFoto`, `Produto_idProduto`) VALUES
 (1, 'uploadsprodutos/1_20181129.jpeg', 1),
 (2, 'uploadsprodutos/2_20181129.jpeg', 2),
-(3, 'uploadsprodutos/4_20181203.jpeg', 4);
+(3, 'uploadsprodutos/4_20181203.jpeg', 4),
+(4, 'uploadsprodutos/11_20181209.jpeg', 11),
+(5, 'uploadsprodutos/12_20181209.jpeg', 12),
+(6, 'uploadsprodutos/13_20181209.jpeg', 13),
+(7, 'uploadsprodutos/14_20181209.jpeg', 14),
+(8, 'uploadsprodutos/15_20181209.jpeg', 15),
+(9, 'uploadsprodutos/16_20181209.jpeg', 16);
 
 -- --------------------------------------------------------
 
@@ -3528,10 +3534,12 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
-(1, 1, 'Camiseta', 1, '22', 40, 30, 'Camiseta básica', NULL, '2018-12-04', '2018-12-04', NULL),
-(3, 1, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-09', NULL),
-(4, 0, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL),
-(8, 0, 'teste categoria', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-09', NULL);
+(11, 1, 'Vestido Extreme', 20, '123', 125, NULL, 'Vestido extreme do Buda', NULL, NULL, '2018-12-09', NULL),
+(12, 1, 'Camiseta Buda', 30, NULL, 60, NULL, 'Camiseta de algodão pima', NULL, NULL, '2018-12-09', NULL),
+(13, 1, 'Camiseta Preta Buda', 20, NULL, 80, NULL, 'Camiseta de algodão pima', NULL, NULL, '2018-12-09', NULL),
+(14, 0, 'Camiseta logo Buda', 50, NULL, 70, NULL, 'Camiseta de algodão pima', NULL, NULL, '2018-12-09', NULL),
+(15, 1, 'Conjunto Pink', 30, NULL, 90, NULL, 'Conjunto Pink', NULL, NULL, '2018-12-09', NULL),
+(16, 0, 'Vestido Geométrico', 20, NULL, 80, NULL, 'Vestido geométrico branco', NULL, NULL, '2018-12-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -3550,9 +3558,12 @@ CREATE TABLE `produtocategoria` (
 --
 
 INSERT INTO `produtocategoria` (`Produto_idProduto`, `Categoria_idCategoria`, `idprodutocategoria`) VALUES
-(8, 7, 1),
-(3, 7, 2),
-(3, 7, 3);
+(11, 2, 7),
+(12, 1, 8),
+(13, 1, 9),
+(14, 1, 10),
+(15, 2, 11),
+(16, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -4328,7 +4339,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `item`
@@ -4388,13 +4399,13 @@ ALTER TABLE `pma__savedsearches`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `produtocategoria`
 --
 ALTER TABLE `produtocategoria`
-  MODIFY `idprodutocategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idprodutocategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `statuspedido`
