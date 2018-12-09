@@ -71,11 +71,11 @@
 <div id="produtosMaiores_gp" class="container">
 	<div class="row">
 		<a href="#"><div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4 destaques_prod destaqueMaior1_img"></a>
-			<div class="txtMaiorHover1">CACILDS VIDRIS<br>LITRO ABERTIS</div>
+			<div class="txtMaiorHover1">ACESSÓRIOS</div>
 	<!-- <img class="destaques_img2 mt-4" src="imagens/destaques/destaque5b.jpg" alt="Produto5"> -->
 </div>
-		<a href="#"><div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4 destaques_prod destaqueMaior2_img"></a>
-			<div class="txtMaiorHover2">CASAMENTIS FAZ<br>MALANDRIS<br>PIRULITÁ</div>
+		<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4 destaques_prod destaqueMaior2_img">
+			<a class="sem_und" href="/acdb/public/produto"><div class="txtMaiorHover2 sem_und">VESTIDO GEO<br>NEW<br>COLLECTION</div></a>
 	<!-- <img class="destaques_img2 mt-4" src="imagens/destaques/destaque6b.jpg" alt="Produto6"> -->
 		</div>
 </div>
@@ -83,8 +83,8 @@
 
 
 <div id="bannerInfraHome" class="container-fluid img-responsive mt-4">
-	<div class="textoInfraHome text-left">Lorem ipsum dolor sit amet</div>
-			<button type="button" class="botaoBannerInfra"><strong>OUTLET</strong></button>
+	<div class="textoInfraHome text-left">coleção cápsula Primavera/Verão</div>
+			<button type="button" class="botaoBannerInfra"><strong>+ Colors</strong></button>
 </div>
 
 	@endsection
