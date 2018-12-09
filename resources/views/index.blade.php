@@ -88,7 +88,7 @@
 
 <div id="bannerInfraHome" class="container-fluid img-responsive mt-4">
 	<div class="textoInfraHome text-left">coleção cápsula Primavera/Verão</div>
-			<button type="button" class="botaoBannerInfra"><strong>+ Colors</strong></button>
+			<button type="button" class="botaoBannerInfra" onclick="window.location.href='produto'"><strong>+ Colors</strong></button>
 </div>
 
 	@endsection
