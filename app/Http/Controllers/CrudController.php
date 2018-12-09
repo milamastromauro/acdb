@@ -115,30 +115,60 @@ class CrudController extends Controller
 
     public function apagaProduto($id=0, Request $r){
         $produto = Produto::find($id);
+        $produto->ProdutoCategoria()->delete();
         $produto->delete();
         return redirect('/listaprodutos');
     }
 
-    public function listaProdutos(Request $r){
+    public function listaProdutos($id=0, Request $r){
         if ($r->isMethod('get')){
-            $produtos = Produto::all();
+            $lista=[];
             $categorias = Categoria::all();
-            foreach($produtos as $produto){
-
-                $foto = $produto->Fotos()->first();
-                if (isset($foto)){
+            //selecionando apenas categorias que possuem produtos
+            // $categorias = DB::table('categoria')
+            // ->join('produtocategoria', 'categoria.idcategoria', '=', 'produtocategoria.Categoria_idCategoria')
+            // ->distinct()
+            // ->get();
+            if ($id==0){
+                $produtos = Produto::all();
+                
+                foreach($produtos as $produto){
+                    $foto = $produto->Fotos()->first();
+                    if (isset($foto)){
+                            $lista[] = array('produto_id'=>$produto->idProduto,
+                        'produto_nome'=>$produto->nomeProduto,
+                        'produto_valor'=>$produto->valorProduto,
+                        'foto'=>$foto->localFoto);
+                    }
+                    else{
                         $lista[] = array('produto_id'=>$produto->idProduto,
-                    'produto_nome'=>$produto->nomeProduto,
-                    'produto_valor'=>$produto->valorProduto,
-                    'foto'=>$foto->localFoto);
-                }
-                else{
-                    $lista[] = array('produto_id'=>$produto->idProduto,
-                    'produto_nome'=>$produto->nomeProduto,
-                    'produto_valor'=>$produto->valorProduto);
-                }
+                        'produto_nome'=>$produto->nomeProduto,
+                        'produto_valor'=>$produto->valorProduto);
+                    }
 
+                }
             }
+            else{
+                $produtos = Produto::find($id);
+                if (isset($produtos)){
+                foreach($produtos as $produto){
+                            $foto = $produto->Fotos()->first();
+                            if (isset($foto)){
+                                    $lista[] = array('produto_id'=>$produto->idProduto,
+                                'produto_nome'=>$produto->nomeProduto,
+                                'produto_valor'=>$produto->valorProduto,
+                                'foto'=>$foto->localFoto);
+                            }
+                            else{
+                                $lista[] = array('produto_id'=>$produto->idProduto,
+                                'produto_nome'=>$produto->nomeProduto,
+                                'produto_valor'=>$produto->valorProduto);
+                            }
+                    
+            }
+        }
+        }  
+            
         }
 
             return view('categoria',

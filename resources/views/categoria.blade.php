@@ -29,9 +29,9 @@
                             <h6 class="titulo-sidebar mb-30">Categorias</h6>
                             <div class="categorias">
                                 <ul class="menu-categorias">
-                                    <li><a href="categoria">Todos</a></li>
+                                    <li><a href="/acdb/public/categoria">Todos</a></li>
                                     @forelse ($categorias as $categoria)
-                                    <li><a href="categoria/{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</a></li>
+                                    <li><a href="/acdb/public/categoria/{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</a></li>
                                     @empty
                                     sem
                                     @endforelse
@@ -63,7 +63,7 @@
                                         <a href="#">
                                             <h6>{{$produto['produto_nome']}}</h6>
                                         </a>
-                                        <p class="preco">R${{$produto['produto_valor']}},00</p>
+                                        <p class="preco">R${{$produto['produto_valor']}}</p>
                                           <!-- Comprar -->
                                           <div id="divcomprar" class="add-to-cart-btn">
                                               <button id="btncomprar" class="btn comprar" value="{{ $produto['produto_id'] }}">Comprar</button>
@@ -73,7 +73,7 @@
                             </div>
 							<!-- fim produto -->
                       @empty
-                        sem
+                        Desculpe, não temos produtos para essa categoria
                     @endforelse
 
                             <!-- inicio prod -->

@@ -24,7 +24,7 @@ Route::post('/cadastraprodutos/{par?}', 'CrudController@cadastraProdutos');
 
 Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');
 
-Route::get('/categoria', 'CrudController@listaProdutos');
+Route::get('/categoria/{par?}', 'CrudController@listaProdutos');
 Route::get('/index', 'CrudController@listaProdutosDestaque');
 Route::get('/', 'CrudController@listaProdutosDestaque');
 

@@ -13,4 +13,8 @@ class Produto extends Model
     public function Fotos(){
         return $this->hasMany('App\Foto','Produto_idProduto','idProduto');
     }
+
+    public function ProdutoCategoria(){
+        return $this->hasMany('App\ProdutoCategoria','Produto_idProduto','idProduto');
+    }
 }
