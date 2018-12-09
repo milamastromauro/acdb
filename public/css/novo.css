@@ -116,9 +116,46 @@ p.direitos{
   vertical-align: middle;
 }
 
+.texto_car1 {
+  position: absolute;
+  font-size: 32px;
+  left: 150px;
+  top: 135px;
+  color:white;
+  font-size: 70px;
+}
+.texto_car2 {
+  position: absolute;
+  font-size: 32px;
+  left: 200px;
+  top: 135px;
+  color:white;
+  font-size: 70px;
+}
+.texto_car3 {
+  position: absolute;
+  font-size: 32px;
+  left: 550px;
+  top: 135px;
+  color:white;
+  font-size: 200px;
+}
+.texto_car4 {
+  position: absolute;
+  font-size: 32px;
+  left: 250px;
+  top: 135px;
+  color:white;
+  font-size: 80px;
+}
+
+.caro_pos{
+  position: absolute
+}
 .sem_und:hover{
   text-decoration: none;
 }
+
 .botaoMenorHome1{
   width: 100%;
   font-size: 1.2rem;
@@ -982,10 +1019,14 @@ margin-left: 30px;
 
 .blocoperguntas{
   margin: 20px 0px 12px 5%;
-  border: 1px solid gray;
-
 }
 
+.fundo_faqs{
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  font-family: 'Ubuntu';
+}
 
 #faq-box {
     width: 70%;
