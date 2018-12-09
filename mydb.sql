@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2018 at 03:30 AM
+-- Generation Time: Dec 09, 2018 at 04:00 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -44,6 +44,20 @@ CREATE TABLE `categoria` (
   `idCategoria` int(11) NOT NULL,
   `nomeCategoria` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `categoria`
+--
+
+INSERT INTO `categoria` (`idCategoria`, `nomeCategoria`) VALUES
+(1, 'Camisetas'),
+(2, 'Vestidos'),
+(3, 'Bermudas'),
+(4, 'Saias'),
+(5, 'Jeans'),
+(6, 'Tênis'),
+(7, 'Acessórios'),
+(8, 'Blusas');
 
 -- --------------------------------------------------------
 
@@ -3033,7 +3047,36 @@ INSERT INTO `item` (`Pedido_idPedido`, `Produto_idProduto`, `Carrinho_idCarrinho
 (6, 40, 0, 7),
 (7, 40, 0, 8),
 (8, 40, 0, 9),
-(8, 40, 0, 10);
+(8, 40, 0, 10),
+(9, 40, 0, 11),
+(11, 40, 0, 12),
+(13, 40, 0, 13),
+(14, 40, 0, 14),
+(15, 40, 0, 15),
+(16, 40, 0, 16),
+(17, 40, 0, 17),
+(18, 40, 0, 18),
+(19, 40, 0, 19),
+(20, 40, 0, 20),
+(21, 40, 0, 21),
+(22, 40, 0, 22),
+(23, 40, 0, 23),
+(24, 40, 0, 24),
+(25, 40, 0, 25),
+(26, 40, 0, 26),
+(27, 40, 0, 27),
+(28, 40, 0, 28),
+(29, 40, 0, 29),
+(30, 40, 0, 30),
+(31, 40, 0, 31),
+(32, 40, 0, 32),
+(33, 40, 0, 33),
+(34, 40, 0, 34),
+(35, 40, 0, 35),
+(36, 40, 0, 36),
+(37, 40, 0, 37),
+(38, 40, 0, 38),
+(39, 40, 0, 39);
 
 -- --------------------------------------------------------
 
@@ -3094,7 +3137,38 @@ INSERT INTO `pedido` (`idPedido`, `dataPedido`, `valorPedido`, `Pedidocol`, `Cli
 (5, '2018-12-08', 80, NULL, 23, 1, 1, 1),
 (6, '2018-12-08', 120, NULL, 23, 1, 1, 1),
 (7, '2018-12-08', 160, NULL, 23, 1, 1, 1),
-(8, '2018-12-08', 240, NULL, 23, 1, 1, 1);
+(8, '2018-12-08', 240, NULL, 23, 1, 1, 1),
+(9, '2018-12-08', 40, NULL, 23, 1, 1, 1),
+(10, '2018-12-08', 40, NULL, 23, 1, 1, 1),
+(11, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(12, '2018-12-08', 80, NULL, 23, 1, 1, 1),
+(13, '2018-12-08', 120, NULL, 23, 1, 1, 1),
+(14, '2018-12-08', 160, NULL, 23, 1, 1, 1),
+(15, '2018-12-08', 200, NULL, 23, 1, 1, 1),
+(16, '2018-12-08', 200, NULL, 23, 1, 1, 1),
+(17, '2018-12-08', 240, NULL, 23, 1, 1, 1),
+(18, '2018-12-08', 280, NULL, 23, 1, 1, 1),
+(19, '2018-12-08', 320, NULL, 23, 1, 1, 1),
+(20, '2018-12-08', 360, NULL, 23, 1, 1, 1),
+(21, '2018-12-08', 400, NULL, 23, 1, 1, 1),
+(22, '2018-12-08', 440, NULL, 23, 1, 1, 1),
+(23, '2018-12-08', 480, NULL, 23, 1, 1, 1),
+(24, '2018-12-08', 520, NULL, 23, 1, 1, 1),
+(25, '2018-12-08', 560, NULL, 23, 1, 1, 1),
+(26, '2018-12-08', 600, NULL, 23, 1, 1, 1),
+(27, '2018-12-08', 640, NULL, 23, 1, 1, 1),
+(28, '2018-12-08', 680, NULL, 23, 1, 1, 1),
+(29, '2018-12-08', 720, NULL, 23, 1, 1, 1),
+(30, '2018-12-08', 760, NULL, 23, 1, 1, 1),
+(31, '2018-12-08', 800, NULL, 23, 1, 1, 1),
+(32, '2018-12-08', 840, NULL, 23, 1, 1, 1),
+(33, '2018-12-08', 880, NULL, 23, 1, 1, 1),
+(34, '2018-12-08', 920, NULL, 23, 1, 1, 1),
+(35, '2018-12-08', 960, NULL, 23, 1, 1, 1),
+(36, '2018-12-08', 1000, NULL, 23, 1, 1, 1),
+(37, '2018-12-08', 1040, NULL, 23, 1, 1, 1),
+(38, '2018-12-08', 40, NULL, 23, 1, 1, 1),
+(39, '2018-12-08', 40, NULL, 23, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3455,8 +3529,9 @@ CREATE TABLE `produto` (
 
 INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoqueProduto`, `skuProduto`, `valorProduto`, `valorDescontoProduto`, `descricaoProduto`, `fotoProduto`, `dataCriacaoProduto`, `dataAlteracaoProduto`, `Produtocol`) VALUES
 (1, 1, 'Camiseta', 1, '22', 40, 30, 'Camiseta básica', NULL, '2018-12-04', '2018-12-04', NULL),
-(3, 1, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL),
-(4, 0, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL);
+(3, 1, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-09', NULL),
+(4, 0, 'Dinara Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03', NULL),
+(8, 0, 'teste categoria', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -3466,8 +3541,18 @@ INSERT INTO `produto` (`idProduto`, `destaqueProduto`, `nomeProduto`, `estoquePr
 
 CREATE TABLE `produtocategoria` (
   `Produto_idProduto` int(11) NOT NULL,
-  `Categoria_idCategoria` int(11) NOT NULL
+  `Categoria_idCategoria` int(11) NOT NULL,
+  `idprodutocategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `produtocategoria`
+--
+
+INSERT INTO `produtocategoria` (`Produto_idProduto`, `Categoria_idCategoria`, `idprodutocategoria`) VALUES
+(8, 7, 1),
+(3, 7, 2),
+(3, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -4102,6 +4187,12 @@ ALTER TABLE `produto`
   ADD PRIMARY KEY (`idProduto`);
 
 --
+-- Indexes for table `produtocategoria`
+--
+ALTER TABLE `produtocategoria`
+  ADD PRIMARY KEY (`idprodutocategoria`);
+
+--
 -- Indexes for table `proxies_priv`
 --
 ALTER TABLE `proxies_priv`
@@ -4201,7 +4292,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `cidade`
@@ -4243,7 +4334,7 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `pagamento`
@@ -4255,7 +4346,7 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `pma__bookmark`
@@ -4297,7 +4388,13 @@ ALTER TABLE `pma__savedsearches`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `produtocategoria`
+--
+ALTER TABLE `produtocategoria`
+  MODIFY `idprodutocategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statuspedido`
