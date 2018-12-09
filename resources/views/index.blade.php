@@ -11,22 +11,26 @@
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
 	      <img class="d-block w-100" src="{{ asset('/imagens/banner1b.jpg') }}" alt="First slide">
+				<label class="texto_car1">DRESs </br> TIME</label>
 	    </div>
 	    <div class="carousel-item">
 				<img class="d-block w-100" src="{{ asset('/imagens/banner2b.jpg') }}" alt="Second slide">
+				<label class="texto_car2">SAPATOS </br>  &</br> TÊNIS</label>
 	    </div>
 	    <div class="carousel-item">
 	      <img class="d-block w-100" src="{{ asset('/imagens/banner3b.jpg') }}" alt="Third slide">
+				<label class="texto_car3">camisetas</label>
 	    </div>
 			<div class="carousel-item">
 				<img class="d-block w-100" src="{{ asset('/imagens/banner4b.jpg') }}" alt="Third slide">
+				<label class="texto_car4">man </br>collection</label>
 			</div>
 	  </div>
-	  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+	  <a class="carousel-control-prev" href="#carrosselHome" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 	    <span class="sr-only">Previous</span>
 	  </a>
-	  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+	  <a class="carousel-control-next" href="#carrosselHome" role="button" data-slide="next">
 	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 	    <span class="sr-only">Next</span>
 	  </a>
