@@ -29,15 +29,12 @@
                             <h6 class="titulo-sidebar mb-30">Categorias</h6>
                             <div class="categorias">
                                 <ul class="menu-categorias">
-                                    <li><a href="#">Todos</a></li>
-                                    <li><a href="#">Camisetas</a></li>
-                                    <li><a href="#">Vestidos</a></li>
-                                    <li><a href="#">Bermudas</a></li>
-                                    <li><a href="#">Saias</a></li>
-                                    <li><a href="#">Jeans</a></li>
-                                    <li><a href="#">Tênis</a></li>
-                                    <li><a href="#">Acessórios</a></li>
-                                    <li><a href="#">Blusas</a></li>
+                                    <li><a href="categoria">Todos</a></li>
+                                    @forelse ($categorias as $categoria)
+                                    <li><a href="categoria/{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</a></li>
+                                    @empty
+                                    sem
+                                    @endforelse
                                   </ul>
                             </div>
                         </div>

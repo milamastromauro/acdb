@@ -122,6 +122,7 @@ class CrudController extends Controller
     public function listaProdutos(Request $r){
         if ($r->isMethod('get')){
             $produtos = Produto::all();
+            $categorias = Categoria::all();
             foreach($produtos as $produto){
 
                 $foto = $produto->Fotos()->first();
@@ -141,7 +142,7 @@ class CrudController extends Controller
         }
 
             return view('categoria',
-            ['produtos'=>$lista]);
+            ['produtos'=>$lista, 'categorias'=>$categorias]);
             // var_dump($lista);
     }
 
