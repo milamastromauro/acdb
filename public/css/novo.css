@@ -116,7 +116,9 @@ p.direitos{
   vertical-align: middle;
 }
 
-
+.sem_und:hover{
+  text-decoration: none;
+}
 .botaoMenorHome1{
   width: 100%;
   font-size: 1.2rem;
@@ -167,6 +169,7 @@ p.direitos{
 
 .txtMaiorHover2{
   display:none;
+  text-decoration: none;
 }
 
 .destaqueMaior2_img{
@@ -175,6 +178,7 @@ p.direitos{
   height: 75vh;
   overflow: hidden;
   vertical-align: middle;
+
 }
 
 .destaqueMaior2_img:hover{
