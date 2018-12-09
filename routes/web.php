@@ -38,6 +38,8 @@ Route::view('/contato', 'contato');
 Route::get('/carrinho/{item}', 'CarrinhoController@AdicionaCarrinho');
 Route::get('/vercarrinho', 'CarrinhoController@VisualizaCarrinho');
 
+Route::get('/limparcarrinho', 'CarrinhoController@LimparCarrinho');
+
 Route::get('/apagaproduto/{item}', 'CrudController@apagaProduto');
 
 Route::get('/listaprodutos', 'CrudController@listaProdutosAdm');

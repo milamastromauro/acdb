@@ -112,8 +112,11 @@ class CarrinhoController extends Controller
     }
 
     public function limparCarrinho(Request $r){
-      $r->session()->get('carrinho');
-      $r->session()->forget('produto_id');
+      $r->session()->forget('carrinho');
+      $r->session()->forget('soma');
+      $r->session()->forget('valor_total');
+      $r->session()->forget('qtdcarrinho');
+      return redirect('vercarrinho');
     }
 
 }
