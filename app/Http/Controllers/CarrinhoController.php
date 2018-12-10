@@ -121,11 +121,18 @@ class CarrinhoController extends Controller
 
     public function removerCarrinho(Request $r,$id){
         $lista = $r->session()->get('carrinho');
+
+
         foreach($lista as $key=>$produto){
-            if($produto['produto_id'] == $id){
+            if($produto["produto_id"] == $id){
               unset($lista[$key]);
             }
         }
+
+         $r->session()->put('carrinho', $lista);
+         $r->session()->put('soma');
+         $r->session()->put('valor_total');
+         $r->session()->put('qtdcarrinho');
         return redirect()->back();
       }
 
