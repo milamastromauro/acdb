@@ -67,6 +67,7 @@
                                           <!-- Comprar -->
                                           <div id="divcomprar" class="add-to-cart-btn">
                                               <button id="btncomprar" class="btn comprar" value="{{ $produto['produto_id'] }}">Comprar</button>
+																						<div id='sucess' style="display:none">Produto adicionado</div>
                                           </div>
                                     </div>
                                 </div>
@@ -87,24 +88,42 @@
 <script>
 /*window.onload = function() {
 */
-let comprar = document.getElementById('btncomprar');
+let btnComprar = document.getElementsByTagName('button');
+//let comprar = document.getElementById('btncomprar');
+
 let itensCart=document.getElementById('itensCart');
-let comprar2 = document.getElementById('divcomprar');
+//let comprar2 = document.getElementById('divcomprar');
+
 
 console.log(itensCart.value);
 
-comprar.onclick = function(){
+for(let i=0;i<btnComprar.length;i++){
+	if(btnComprar[i].className == 'btn comprar'){
+		btnComprar[i].addEventListener('click',function(){
+			addProduto(btnComprar[i])})
+	}
+}
+
+function addProduto(comprar){
+	//console.log(comprar.parentNode)
+	let parent = comprar.parentNode
 	var request = new XMLHttpRequest();
 	request.open('GET', 'carrinho/'+comprar.value, true);
 
 	request.onload = function() {
 	  if (request.status >= 200 && request.status < 400) {
 	    // Deu certo
-			comprar.innerHTML = "<div>Produto adicionado</div>";
-			itensCart.innerHTML = parseInt(itensCart.textContent)+1;
-			setTimeout(function(){
-			comprar2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
-		}, 1000);
+				//parent.firstElementChild.innerHTML =  '<div>Produto adicionado</div>'
+		parent.lastElementChild.style.display = 'block';
+		comprar.style.display = 'none'
+		itensCart.innerHTML = parseInt(itensCart.textContent)+1;
+		 	setTimeout(function(){
+		 		//parent.firstElementChild.innerHTML = "<button id='btncomprar' value='"+comprar.value+"' class='btn comprar'>Comprar</button>"
+		// 	delete window.comprar;
+		parent.lastElementChild.style.display = 'none';
+		comprar.style.display = 'block'
+
+		 }, 1000);
 	  } else {
 	    // Deu erro
 			let comprarErro = document.getElementById('btncomprar');
@@ -112,7 +131,7 @@ comprar.onclick = function(){
 			comprarErro.onclick = function(){
 				comprarErro.innerHTML = "<div>Ops! Tente de novo</div>";
 				setTimeout(function(){
-				comprarErro2.innerHTML = "<button id='btncomprar' class='btn comprar'>Comprar</button>"
+				comprarErro2.innerHTML = "<button id='btncomprar' value='"+comprar.value+"' class='btn comprar'>Comprar</button>"
 			}, 5000);
 			}
 

@@ -33,6 +33,7 @@
             <th scope="col">Quantidade</th>
             <th scope="col">Valor Unitário</th>
             <th scope="col">Valor Total</th>
+						<th scope="col">Remover</th>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +48,7 @@
             <td>1</td>
             <td>R$ {{ $produto['produto_valor'] }}</td>
             <td>R$ {{ $produto['produto_valor'] }}</td>
+						<td><a class='btn pull-right btn-danger' name="removerprod" value="{{ $produto['produto_id'] }}" href="removercarrinho/{{ $produto['produto_id'] }}" role='button'><i class='fas fa-times'></i></a></td>
           </tr>
           @empty
     Você não tem produtos no carrinho!
@@ -58,6 +60,7 @@
       <td></td>
       <td></td>
       <td></td>
+			<td></td>
       <td>R$ 10</td>
     </tr>
     <tr class="table-info">
@@ -65,6 +68,7 @@
       <td></td>
       <td></td>
       <td></td>
+			<td></td>
       <td>R$ {{ $valorTotal }}</td>
     </tr>
   </tfoot>
@@ -78,11 +82,11 @@
 
       </div>
 
- 
+
 
     </section>
 
-  
+
 
 </div>
 

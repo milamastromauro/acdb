@@ -39,6 +39,7 @@ Route::get('/carrinho/{item}', 'CarrinhoController@AdicionaCarrinho');
 Route::get('/vercarrinho', 'CarrinhoController@VisualizaCarrinho');
 
 Route::get('/limparcarrinho', 'CarrinhoController@LimparCarrinho');
+Route::get('/removercarrinho/{id}', 'CarrinhoController@removerCarrinho');
 
 Route::get('/apagaproduto/{item}', 'CrudController@apagaProduto');
 

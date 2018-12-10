@@ -96,9 +96,9 @@ class CarrinhoController extends Controller
             $r->session()->forget('soma');
             //se for mostrar os dados no sucesso, mover esses forget para esse controller
 
-            return view('sucessocompra',['pedido' => $pedido, 
+            return view('sucessocompra',['pedido' => $pedido,
             'produtos' => $produtos]);
-            
+
 
 
             }
@@ -118,5 +118,15 @@ class CarrinhoController extends Controller
       $r->session()->forget('qtdcarrinho');
       return redirect('vercarrinho');
     }
+
+    public function removerCarrinho(Request $r,$id){
+        $lista = $r->session()->get('carrinho');
+        foreach($lista as $key=>$produto){
+            if($produto['produto_id'] == $id){
+              unset($lista[$key]);
+            }
+        }
+        return redirect()->back();
+      }
 
 }
