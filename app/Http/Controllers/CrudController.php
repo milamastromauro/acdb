@@ -121,8 +121,8 @@ class CrudController extends Controller
     }
 
     public function listaProdutos($id=0, Request $r){
-        if ($r->isMethod('get')){
-            $lista=[];
+        $lista=[];
+        if ($r->isMethod('get')){   
             $categorias = Categoria::all();
             //selecionando apenas categorias que possuem produtos
             // $categorias = DB::table('categoria')
@@ -131,7 +131,6 @@ class CrudController extends Controller
             // ->get();
             if ($id==0){
                 $produtos = Produto::all();
-                
                 foreach($produtos as $produto){
                     $foto = $produto->Fotos()->first();
                     if (isset($foto)){
@@ -141,6 +140,7 @@ class CrudController extends Controller
                         'foto'=>$foto->localFoto);
                     }
                     else{
+                        $produtos = Produto::all();
                         $lista[] = array('produto_id'=>$produto->idProduto,
                         'produto_nome'=>$produto->nomeProduto,
                         'produto_valor'=>$produto->valorProduto);
@@ -149,15 +149,17 @@ class CrudController extends Controller
                 }
             }
             else{
-                $produtos = Produto::find($id);
+                $produtos = Produto::join('produtocategoria', 'produto.idProduto', '=', 'produtocategoria.Produto_idProduto')
+                ->where('produtocategoria.Categoria_idCategoria', '=', $id)
+                ->get();
                 if (isset($produtos)){
-                foreach($produtos as $produto){
-                            $foto = $produto->Fotos()->first();
+                    foreach($produtos as $produto){
+                        $foto = $produto->Fotos()->first();
                             if (isset($foto)){
                                     $lista[] = array('produto_id'=>$produto->idProduto,
                                 'produto_nome'=>$produto->nomeProduto,
                                 'produto_valor'=>$produto->valorProduto,
-                                'foto'=>$foto->localFoto);
+                                'foto'=>'../'.$foto->localFoto);
                             }
                             else{
                                 $lista[] = array('produto_id'=>$produto->idProduto,
