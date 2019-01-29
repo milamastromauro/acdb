@@ -5,7 +5,9 @@
 @section('title', 'A Cabeça do Buda - Login')
 
 @section('content')
-
+<section class="container-fluid fundoLogin">
+  <div class="container">
+    <div class="row">
       <div class="loginArea col-12 col-sm-12 col-md-12 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mt-5 align-middle">
         <form action="/acdb/public/login" method="POST">
             {!! csrf_field()!!}
@@ -26,9 +28,9 @@
         @isset($respostalogin)
             <br>
             <div class="alert alert-primary" role="alert">
-            {{$respostalogin}}
+            {{  $respostalogin  }}
             </div>
         @endisset
     </div>
-  
+
 @endsection

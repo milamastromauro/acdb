@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>@yield('title')</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- arquivos para o bootstrap -->
@@ -16,6 +16,7 @@
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     </head>
     <body>
+    @if(1 == (Session::get('adm')))
     <header class="header_area">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand p-3" href="index.html">
@@ -26,11 +27,15 @@
             </button>
             <div class="collapse navbar-collapse ml-5" id="conteudoMenu">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="index.html">Índice do admin</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="categoria.html">Produtos</a>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                    Produtos
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost/acdb/public/cadastraprodutos">Criar Novo</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="http://localhost/acdb/public/listaprodutos">Ver lista completa</a>
+                </div>
                 </li>
                     <li class="nav-item">
                 <a class="nav-link" href="categoria.html">Clientes</a>
@@ -43,23 +48,26 @@
             <!-- Seção da direita -->
             <div class="header-meta d-flex clearfix justify-content-end">
                     <!-- Área de login -->
-                    <div class="cart-area-claro mr-4">
-                            <a href="checkout.html"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                    @if(null !== (Session::get('nome')))
+                    <div id="logado" class="cart-area-claro">
+                      <a href="checkout.html" class="logado"><i class="fas fa-user" aria-hidden="true"></i> <span>Olá, {{ Session::get('nome') }}</span></a>
                     </div>
+                    <div id="logout" class="cart-area-claro">
+                      <a href="logout" class="logout"><i class="fas fa-power-off" aria-hidden="true"></i> <span>Sair</span></a>
+                    </div>
+                      @else
+                      <div class="cart-area-claro">
+                      <a href="login"><i class="fas fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                      </div>
+                      @endif
             </div>
         </nav>
 
     </header>
         <section>
-        <div class="container-fluid fundoLogin">
-        <div class="container">
-        <div class="row">
             @yield('content')
-        </div>
-
-        </div>
-        </div>
         </section>
+    
 
         <footer id="rodape" class="footer_area">
         <div class="container">
@@ -97,5 +105,12 @@
         	</div>
     </footer>
     </body>
+    @else
+    <section>
+        <div class="container  py-4">
+            Desculpe, sem permissão de acesso
+        <div>
+        </section>
+        @endif
 
 </html>

@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="{{ asset('/css/novo.css') }}" rel="stylesheet">
-		<title>A Cabeça do Buda - Camisetas</title>
-	</head>
-	<body id="pagina-categoria">
-  @include('header')
+@extends('layouts.base')
+
+@section('title', 'Categoria de Produtos')
+
+@section('content')
+
+	<div id="pagina-categoria">
 		<section class="area_titulo">
 			<div class="area_titulo align-middle">
 				<div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h1>Camisetas</h1>
+                        <h1>Produtos</h1>
                     </div>
                 </div>
             </div>
@@ -36,15 +29,12 @@
                             <h6 class="titulo-sidebar mb-30">Categorias</h6>
                             <div class="categorias">
                                 <ul class="menu-categorias">
-                                    <li><a href="#">Todos</a></li>
-                                    <li><a href="#">Camisetas</a></li>
-                                    <li><a href="#">Vestidos</a></li>
-                                    <li><a href="#">Bermudas</a></li>
-                                    <li><a href="#">Saias</a></li>
-                                    <li><a href="#">Jeans</a></li>
-                                    <li><a href="#">Tênis</a></li>
-                                    <li><a href="#">Acessórios</a></li>
-                                    <li><a href="#">Blusas</a></li>
+                                    <li><a href="/acdb/public/categoria">Todos</a></li>
+                                    @forelse ($categorias as $categoria)
+                                    <li><a href="/acdb/public/categoria/{{$categoria->idCategoria}}">{{$categoria->nomeCategoria}}</a></li>
+                                    @empty
+                                    sem
+                                    @endforelse
                                   </ul>
                             </div>
                         </div>
@@ -56,133 +46,37 @@
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop_grid_product_area">
                       <div class="row">
+                      @forelse ($produtos as $produto)
+                        <!-- inicio prod -->
+                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                <div class="single-product-wrapper">
+                                    <!-- Imagem do produto -->
+                                    <div class="product-img">
+                                    @if(isset($produto['foto']))
+									<img src="{{$produto['foto']}}" alt="">
+                                    @else
+                                    <img src="{{ asset('css/imagens/default.png') }}" alt="">
+                                    @endif
+                                    </div>
+                                    <!-- Descricao -->
+                                    <div class="descricao mt-1">
+                                        <a href="#">
+                                            <h6>{{$produto['produto_nome']}}</h6>
+                                        </a>
+                                        <p class="preco">R${{$produto['produto_valor']}}</p>
+                                          <!-- Comprar -->
+                                          <div id="divcomprar" class="add-to-cart-btn">
+                                              <button id="btncomprar" class="btn comprar" value="{{ $produto['produto_id'] }}">Comprar</button>
+																						<div id='sucess' style="display:none">Produto adicionado</div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+							<!-- fim produto -->
+                      @empty
+                        Desculpe, não temos produtos para essa categoria
+                    @endforelse
 
-                            <!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/body_produto18_zoom.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Vestido extreme</h6>
-                                        </a>
-                                        <p class="preco">R$255,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
-														<!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/camiseta_gun_produto11_frente_b.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Camiseta do buda</h6>
-                                        </a>
-                                        <p class="preco">R$55,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
-														<!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/camiseta_lion_produto12_zoom.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Camiseta do buda</h6>
-                                        </a>
-                                        <p class="preco">R$55,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
-														<!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			 <img src="{{ asset('/imagens/produtos-categoria/camiseta_logo.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Camiseta branca</h6>
-                                        </a>
-                                        <p class="preco">R$155,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
-														<!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/conjunto_pink_frente.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Conjunto pink</h6>
-                                        </a>
-                                        <p class="preco">R$455,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
-														<!-- inicio prod -->
-                            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                <div class="single-product-wrapper">
-                                    <!-- Imagem do produto -->
-                                    <div class="product-img">
-																			<img src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" alt="">
-                                    </div>
-                                    <!-- Descricao -->
-                                    <div class="descricao mt-1">
-                                        <a href="#">
-                                            <h6>Vestido geométrico lado</h6>
-                                        </a>
-                                        <p class="preco">R$255,00</p>
-                                          <!-- Comprar -->
-                                          <div class="add-to-cart-btn">
-                                              <a href="checkout.html" class="btn comprar">Comprar</a>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-														<!-- fim produto -->
                                 </div>
                             </div>
 
@@ -190,16 +84,68 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-		<!-- RODAPÉ -->
+<script>
+/*window.onload = function() {
+*/
+let btnComprar = document.getElementsByTagName('button');
+//let comprar = document.getElementById('btncomprar');
 
-		@include('footer')
+let itensCart=document.getElementById('itensCart');
+//let comprar2 = document.getElementById('divcomprar');
 
-		<!-- SCRIPTS DE JS PARA O BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js></script>
-  </body>
-  </html>
+
+console.log(itensCart.value);
+
+for(let i=0;i<btnComprar.length;i++){
+	if(btnComprar[i].className == 'btn comprar'){
+		btnComprar[i].addEventListener('click',function(){
+			addProduto(btnComprar[i])})
+	}
+}
+
+function addProduto(comprar){
+	//console.log(comprar.parentNode)
+	let parent = comprar.parentNode
+	var request = new XMLHttpRequest();
+	request.open('GET', 'carrinho/'+comprar.value, true);
+
+	request.onload = function() {
+	  if (request.status >= 200 && request.status < 400) {
+	    // Deu certo
+				//parent.firstElementChild.innerHTML =  '<div>Produto adicionado</div>'
+		parent.lastElementChild.style.display = 'block';
+		comprar.style.display = 'none'
+		itensCart.innerHTML = parseInt(itensCart.textContent)+1;
+		 	setTimeout(function(){
+		 		//parent.firstElementChild.innerHTML = "<button id='btncomprar' value='"+comprar.value+"' class='btn comprar'>Comprar</button>"
+		// 	delete window.comprar;
+		parent.lastElementChild.style.display = 'none';
+		comprar.style.display = 'block'
+
+		 }, 1000);
+	  } else {
+	    // Deu erro
+			let comprarErro = document.getElementById('btncomprar');
+			let comprarErro2 = document.getElementById('divcomprar');
+			comprarErro.onclick = function(){
+				comprarErro.innerHTML = "<div>Ops! Tente de novo</div>";
+				setTimeout(function(){
+				comprarErro2.innerHTML = "<button id='btncomprar' value='"+comprar.value+"' class='btn comprar'>Comprar</button>"
+			}, 5000);
+			}
+
+	  }
+	};
+
+	request.onerror = function() {
+	  // There was a connection error of some sort
+	};
+
+	request.send();
+
+
+}
+
+</script>
+						    @endsection

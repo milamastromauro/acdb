@@ -22,7 +22,7 @@ body.checkout {
 /*config especifica body faq*/
 
   .fundobodyfaq{
-    background-image: url("imagens/fundo-bkp.jpg");
+    background: none;
     object-fit: cover;
 
 }
@@ -116,6 +116,45 @@ p.direitos{
   vertical-align: middle;
 }
 
+.texto_car1 {
+  position: absolute;
+  font-size: 32px;
+  left: 150px;
+  top: 135px;
+  color:white;
+  font-size: 70px;
+}
+.texto_car2 {
+  position: absolute;
+  font-size: 32px;
+  left: 200px;
+  top: 135px;
+  color:white;
+  font-size: 70px;
+}
+.texto_car3 {
+  position: absolute;
+  font-size: 32px;
+  left: 550px;
+  top: 135px;
+  color:white;
+  font-size: 200px;
+}
+.texto_car4 {
+  position: absolute;
+  font-size: 32px;
+  left: 250px;
+  top: 135px;
+  color:white;
+  font-size: 80px;
+}
+
+.caro_pos{
+  position: absolute
+}
+.sem_und:hover{
+  text-decoration: none;
+}
 
 .botaoMenorHome1{
   width: 100%;
@@ -167,6 +206,7 @@ p.direitos{
 
 .txtMaiorHover2{
   display:none;
+  text-decoration: none;
 }
 
 .destaqueMaior2_img{
@@ -175,6 +215,7 @@ p.direitos{
   height: 75vh;
   overflow: hidden;
   vertical-align: middle;
+
 }
 
 .destaqueMaior2_img:hover{
@@ -262,7 +303,7 @@ p.direitos{
 }
 
 /* CADA PRODUTO */
-#pagina-categoria a.btn.comprar{
+a.btn.comprar{
   background-color: #C3DB5D;
   color: #fff;
 }
@@ -282,7 +323,7 @@ p.direitos{
   margin-top: 10px;
 }
 
-#pagina-categoria .product-img img{
+.product-img img{
   max-width: 100%;
 }
 
@@ -374,14 +415,21 @@ p.direitos{
   text-decoration: none;
 }
 
+.fundologin2{
+  background: url("imagens/login/fundo.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+
+}
+
 .fundoLogin{
   background: url("imagens/login/fundo.jpg") no-repeat;
   background-size: cover;
   width: 100%;
   overflow: hidden;
-  height: 68vh;
-}
 
+}
 .loginArea{
   background-color: rgba(248, 249, 250, 0.9);
   border-radius: 1em;
@@ -577,9 +625,9 @@ p.direitos{
 }
 
     .conclude:hover{
-    border: 3px solid forestgreen;
-    background-color: white;
-    color: forestgreen;
+    border: 3px solid #3b3e3f;
+    background-color: #3b3e3f;
+    color: white;
     cursor: pointer;
 }
 }
@@ -657,7 +705,7 @@ p.direitos{
   float: left;
   position: absolute;
   text-align: center !important;
-  top:-95px; left:6px;
+  margin-top: -95px; left:6px;
 
 }
 .checktitulo p{
@@ -670,7 +718,7 @@ p.direitos{
 
 .backbanner{
   background: url("imagens/breadcumb.jpg") no-repeat center center;
-width: 100%;
+  width: 100%;
   height: 140px;
   opacity: 0.1;
   position: relative;
@@ -679,7 +727,13 @@ width: 100%;
 
 }
 
+/*busca*/
+div.buscavazia{
+  display: block;
+}
+
 .pcheckout{
+  margin-top: 30px;
   font-size: 30px;
   color: black;
   text-transform: uppercase;
@@ -769,7 +823,7 @@ width: 100%;
 }
 
 .botaocomprar{
-  background-color: #3713d6;
+  background-color: #6BD545;
   color: #FFF;
   font-family: 'Poppins';
   width: 200px;
@@ -788,7 +842,7 @@ width: 100%;
   margin-bottom: 50px;
 }
 
-.end{
+.end_estilo{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Ubuntu';
@@ -807,9 +861,12 @@ width: 100%;
   text-align: center;
   border-radius: 5px;
   font-weight: bolder;
-  background-color: #c0c0c0;
-  margin-top: 20px;
-  margin-left: 30px;
+  background-color: #f4f5f7;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-family: 'Ubuntu';
+  font-size: 30px;
 }
 
 .cardoso {
@@ -820,16 +877,27 @@ margin-left: 30px;
 .para {
   text-align: justify;
   padding: 7px;
-background-color:#c0c0c0;
-border-radius: 5px;
+  background-color:#f4f5f7;
+  border-radius: 5px;
   color: black;
   font-size: 20px;
   font-weight: lighter;
   margin-left: 30px;
+  font-size: 16px;
+  font-family: 'Ubuntu';
+}
+.infos_loja_contato{
+  margin-bottom: 35px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color:#f4f5f7;
+  text-align: justify;
+  font-size: 15px;
+  color: black;
 }
 
 .tituloinfos {
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .margintopdez {
@@ -839,20 +907,40 @@ border-radius: 5px;
 /*fim*/
 
 /*configs pag produto*/
+ .border_produto{
+   border-style: groove;
+   border-width: thin;
+
+ }
+
+.alt_prodt{
+  height: 600px;
+
+}
+
+.titulo_produto_2{
+  text-align: center;
+
+}
 
 #present {
     margin: 0px;
     /* margin-bottom: 3%; */
-    background-image: url("imagens/fundo-bkp.jpg");
-    background-repeat: repeat;
+    background-image: none;
+
 }
 
 #modelo{
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 3%;
-    position: relative;
+  margin-bottom: 12%;
+  margin-top: 8%;
+  margin-left: 15%;
+
+}
+
+@media (max-width: 767px){
+  #modelo{
+    margin-bottom:8px;
+  }
 }
 
 #about {
@@ -863,16 +951,73 @@ border-radius: 5px;
     height: 30%;
 }
 
+.blocoproduto{
+  margin-top: 20px;
+ margin-left: 30px;
+
+}
+
+.menuzinho_produto{
+  display: inline-block;
+  list-style-type: circle;
+  color:black;
+  margin-right: 10px;
+
+}
+.menuzinho_produto::before{
+  content: ">";
+  font-size: 1rem;
+  transform: translateY(-50%);
+  }
+.menuzinho_produto a{
+  color: black;
+  font-size: 14px;
+}
+
+.menuzinho_produto_ul{
+  display: block;
+  align-items: center;
+  text-align: center;
+  list-style-type: circle;
+   list-style-position: outside;
+}
+.titulo_produto{
+  font-family: 'Ubuntu';
+}
+.fonts_produto{
+  font-family: 'Ubuntu';
+}
+.description{
+  margin-top: 20px;
+}
+@media (max-width: 767px){
+  .blocoproduto{
+    margin-top: 5px;
+  }
+  .titulo_produto2{
+    margin-top: 5px;
+  }
+}
+
+.titulo_produto{
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.titulo_produto2{
+  font-size: 20px;
+}
+
+
 
 #descritivo {
     padding: 10px;
-    color: white;
-    margin-top: auto;
-    margin-bottom: 3%;
-    border: 5px solid floralwhite;
-    background-color: black;
+    color: black;
+    font-family: 'Ubuntu';
+    border: 1px solid gray;
+    background-color: white;
     text-transform: uppercase;
-    position: relative;
+    margin-bottom: 10px;
 }
 
 
@@ -881,38 +1026,65 @@ border-radius: 5px;
     font: inherit;
     border-color: gray;
     height: 35px;
-    width: 60px;
+    width: 100px;
     background-color: aliceblue;
     color: black
 }
 
 .conclude {
+  align-items: center;
     text-align: center;
-    background-color: forestgreen;
+    background-color: black;
+    font-size: 20px;
     color: white;
-    padding: 3px;
+    padding: 10px;
+    border-bottom-style: none;
+    border-bottom: none;
+    width: 90%;
+    height: 60px;
+    margin-left: 30px;
+}
+.position_name_d{
+  margin-top: 1%;
 }
 
 .size, .color, .conclude{
     align-content: flex-start;
-    margin: 5px;
     display: inline;
+
 }
 
+.fontefaq{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Ubuntu';
+}
+.fontefaqans{
+  font-size: 14px;
+  font-style: normal;
+  font-family: 'Ubuntu';
+}
+
+.blocoperguntas{
+  margin: 20px 0px 12px 5%;
+}
+
+.fundo_faqs{
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  font-family: 'Ubuntu';
+}
 
 #faq-box {
     width: 70%;
     margin: 5% 15% 0%;
-    border: 6px solid gray;
+    border: 1px solid gray;
     padding: 0px;
     z-index: 9;
 }
 
-#q-box {
-    text-transform: uppercase;
-    color: white;
-    background-color: black;
-}
 
 #a-box {
     text-transform: uppercase;
@@ -924,5 +1096,165 @@ border-radius: 5px;
     padding: 5px;
     text-align: justify
 }
+.style_carrinho{
+  font-family: 'Ubuntu', sans-serif;
+}
+.config_container{
+  font-style: normal;
+  font-family:  'Ubuntu', sans-serif;
+  position: relative;
 
+}
+
+.carrinhodecompra_text{
+  position: absolute;
+  left: 85px;
+  top: 33px;
+}
+
+
+.button_cancel{
+  background-color: #e1f4ec;
+  color: black;
+  padding: 3px 40px;
+  font-size: 14px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border:none;
+  font-weight: lighter;
+  text-decoration: none;
+  font-style: 'Ubuntu';
+  margin-left: 18%;
+}
+
+.button_buy{
+  background-color: #67efb7;
+  color: black;
+  padding: 3px 40px;
+  font-size: 18px;
+  margin: 3px 240px 5px 61%;
+  border:none;
+  text-decoration: none;
+  font-style: 'Ubuntu';
+  display: block;
+      width: 150px;
+}
+.botao_config {
+  padding: 5px;
+  margin: 0px 5px 5px 5px;
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+  font-style: 'Ubuntu';
+  line-height: initial;
+
+}
+.alinhamento_final{
+  margin-right: 106px;
+}
+.botao_config2 {
+  width: 100%;
+  height:30px;
+  padding: 5px;
+
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+  font-style: 'Ubuntu';
+
+}
+.botao_continuar_comprando{
+  padding: 2px;
+  margin: 32px 2px 2px 2px;
+  border-radius: 2px;
+  background-color:	#46525E;
+  color: #FFFFFF;
+  border:none;
+  text-decoration: none;
+  box-shadow: 0;
+}
+
+.validar_cupom.button_valida{
+  padding: 3px;
+  margin: 2px;
+  height:30px;
+  line-height: initial;
+  background: #46525E;
+  color: white;
+  border: none;
+}
+.validar_cep {
+  width: 30% !important;
+  text-align: left !important;
+}
+.espaco_validar{
+  margin-right: 120px;
+  margin-top: 20px;
+}
+
+.fonte_titulo_elementos{
+  font-weight: lighter;
+}
+.margin_prd{
+  margin-bottom: 5px;
+}
+.fundoelementoscarrinho{
+  background-color: #ececec;
+
+}
+
+.textoalinhadodireita{
+  text-align: right;
+
+}
+
+.textocentralizado{
+  line-height: 36px;
+}
+.textocentral{
+  line-height: 30px;
+}
+
+.fontetitulo{
+  font-size: 15px;
+}
+
+.fontetexto{
+  font-size: 15px;
+}
+
+.nome_prod{
+  max-width: 290px;
+  width: 100%;
+}
+.valortotalprod{
+  font-weight: bold;
+  line-height: 70px;
+}
+@media (max-width: 576px){
+  .fontetitulo{
+    font-size: 12px;
+  }
+  .fontetexto{
+    font-size: 10px;
+  }
+
+  .textoalinhadodireita{
+    text-align: left;
+  }
+
+}
+.inputvalidar_cupom{
+  width: 73%;
+  height:30px;
+}
+.valortotalprod{
+  line-height: 20px;
+}
 /*fim*/

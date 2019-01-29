@@ -1,56 +1,85 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="{{ asset('/css/novo.css') }}" rel="stylesheet">
-		<title>A Cabeça do Buda - Leva uma aí!</title>
-	</head>
-	<body>
-	@include('header')
+@extends('layouts.base')
 
-		<section>
-        <div class="container-fluid" id="present">
-					<img src="{{ asset('/imagens/product-template.png') }}" id="modelo" alt="product-image">
-        <div class="container-fluid" id="about">
-        <div class="container-fluid" id="descritivo">
-            <h1 id="name-produto">Product Name</h1>
-            <h4>R$ X</h4>
-            <p id="description-produto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id blandit metus. Curabitur eu fermentum augue, vitae iaculis est. Sed posuere posuere placerat. Phasellus faucibus lorem ipsum, quis ullamcorper risus hendrerit eget. Nunc pellentesque consequat nibh pellentesque vulputate. Cras convallis porttitor velit at aliquet. Maecenas vel auctor mi.
-            </p>
-            <form>
-            <span>
-                <select class="size">
+@section('title', 'Produto')
+
+@section('content')
+
+
+			<div class="container">
+				<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+
+		<div id="carrossel_produto" class="carousel slide alt_prodt" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carrossel_produto" data-slide-to="0" class="active"></li>
+    <li data-target="#carrossel_produto" data-slide-to="1"></li>
+    <li data-target="#carrossel_produto" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner alt_prodt">
+    <div class="carousel-item active alt_prodt">
+      <img class="d-block w-100 h-100" src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado.jpg') }}" alt="Primeiro Slide">
+    </div>
+    <div class="carousel-item alt_prodt">
+      <img class="d-block w-100 h-100" src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado_3_c.jpg') }}" alt="Segundo Slide">
+    </div>
+    <div class="carousel-item alt_prodt">
+      <img class="d-block w-100 h-100" src="{{ asset('/imagens/produtos-categoria/vestido_geometrico_lado_2_d.jpg') }}" alt="Terceiro Slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carrossel_produto" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carrossel_produto" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+</div>
+								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 blocoproduto">
+									<ul class="menuzinho_produto_ul">
+									<li class="menuzinho_produto"> <a href="http://localhost/acdb/public/index">Cabeça do Buda</a> </li>
+									<li class="menuzinho_produto"> <a href="http://localhost/acdb/public/categoria">Vestidos </a></li>
+									<li class="menuzinho_produto"> <a href="http://localhost/acdb/public/produto"> VESTIDO GEOMÉTRICO </a></li>
+								</ul>
+								<h1 class="titulo_produto_2">VESTIDO GEOMÉTRICO</h1>
+							<h5 class="titulo_produto_2"><i> R$ 320</i></h5>
+							<h6 class="titulo_produto_2"> 2X de R$ 160 </h6>
+						</br>
+							<div>
+							<span class="titulo_produto"> Descrição </span>
+
+							<span class="fonts_produto"></br>Vestido Geométrico Branco/Vermelho/Amarelo/Preto,
+								possui estampa em formas geométricas e sobreposição em tela. Mangas com ombro à mostra.
+							</br></br>
+							<span class="titulo_produto"> Composição </span>
+							</br>
+							<span class="fonts_produto">Confeccionado em 48% Acrílico, 48% Viscose e 4% Elastano. <span>
+							</div></br>
+								<div class="row justify-content-around" id="descritivo">
+									
+          	<span class="position_name_d"> Tamanho </span>
+                <select class="size col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                     <option name= "tamanho" value="PP">PP</option>
                     <option name= "tamanho" value="P">P</option>
                     <option name= "tamanho" value="M">M</option>
                     <option name= "tamanho" value="G">G</option>
                     <option name= "tamanho" value="GG">GG</option>
                 </select>
-            </span>
-            <span>
-                <select class="color">
+
+					<span class="position_name_d"> Cor </span>
+                <select class="color col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                     <option name="cor" value="color-1">Cor 1</option>
                     <option name="cor" value="color-2">Cor 2</option>
                     <option name="cor" value="color-3">Cor 3</option>
                 </select>
             </span>
-            <span>
-                <button class="conclude" type="submit"><input type="hidden" name="id0001">COMPRAR!</button>
-            </span>
-            </form>
-            </div>
-            </div>
-    </div>
-		</section>
- @include('footer')
-		<!-- SCRIPTS DE JS PARA O BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  </body>
-  </html>
+			    </div>
+					<button class="conclude" type="submit">COMPRAR</button>
+			  </div>
+
+			</div>
+		</div>
+
+@endsection

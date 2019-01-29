@@ -25,6 +25,10 @@ p{
   width: 180px;
 }
 
+#logado .logado  {
+  width: 160px;
+}
+
 .conta i.fas.fa-user, .carrinho i.fas.fa-shopping-cart{
   font-size: 26px;
 }
@@ -81,6 +85,10 @@ p{
   border-left: 1px solid #ebebeb;
 }
 
+.user-login-info, .cart-area-claro{
+  border-left: 1px solid #4e565e;
+}
+
 .user-login-info-claro a, .cart-area-claro a{
   position: relative;
   width: 90px;
@@ -89,7 +97,7 @@ p{
   line-height: 145px;
   height: 100%;
   color: #f0f0f0;
-  font-size: 20px;
+  font-size: 14px;
   display: block;
 }
 
@@ -220,4 +228,19 @@ p.direitos{
     display: block;
     margin-top: 22px;
   }
+}
+
+/*gtranslate*/
+
+#google_translate_element {
+  display: none;
+}
+
+.goog-te-banner-frame, .goog-gt-tt {
+  display: none!important;
+}
+
+body {
+  position: static!important;
+  top: 0 !important;
 }

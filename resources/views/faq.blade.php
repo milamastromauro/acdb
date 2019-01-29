@@ -1,75 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="{{ asset('/css/novo.css') }}" rel="stylesheet">
-		<title>A Cabeça do Buda - FAQ</title>
-	</head>
+@extends('layouts.base')
+
+@section('title', 'FAQ')
+
+@section('content')
+
 	<body>
-      @include('header')
-				<div class="fundobodyfaq">
-		<section>
-        <div class="container-fluid" id="faq-box">
-            <div class="container-fluid" id="q-box">
-                <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                 <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-            </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-            <div class="container-fluid" id="q-box">
-                 <p>Q: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-            </div>
-            <div class="container-fluid" id="a-box">
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                  </div>
-        </div>
+
+				<div class="container-fluid backbanner"></div>
+	      <div class="col align-self-start checktitulo">
+	          <span class="pcheckout"> PERGUNTAS FREQUENTES </span> </div>
+				</section>
+
+			<section>
+				<div class="blocoperguntas col-10 col-xs-10 col-sm-10 col-md-11 col-lg-11 col-xl-11">
+        <div>
+				<a class="btn btn-primary fundo_faqs" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+   <span>Os produtos são exclusivos?</span>
+  </a>
+<div class="collapse" id="collapseExample1">
+  <div class="card card-body">
+   Sim, 100% exclusivos. Vendemos apenas pelo canal online, sendo 100% confeccionado por nós, com qualidade e muito carinho para vocês.
+  </div>
+</div>
 			</div>
-		</section>
-        @include('footer')
-		<!-- SCRIPTS DE JS PARA O BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  </body>
-</html>
+		</div>
+
+
+		<div class="blocoperguntas col-10 col-xs-10 col-sm-10 col-md-11 col-lg-11 col-xl-11">
+		<div>
+					<a class="btn btn-primary fundo_faqs" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+			    <span>Quais são as políticas de reembolso do site?</span>
+			  	</a>
+								<div class="collapse" id="collapseExample2">
+				  				<div class="card card-body">
+				  Para reembolso, somente no caso de perda durante entrega, ou por defeito confirmado mediante análise do SAC. (Necessita devolução do produto para análise)
+				        	</div>
+								</div>
+							</div>
+						</div>
+
+		<div class="blocoperguntas col-10 col-xs-10 col-sm-10 col-md-11 col-lg-11 col-xl-11">
+		<div>
+			<a class="btn btn-primary fundo_faqs" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+			<span>E se meu pedido não chegar no prazo?</span>
+			</a>
+			<div class="collapse" id="collapseExample3">
+				<div class="card card-body">
+       Você deverá informar o site, que em um prazo de 4 dias entraremos em contato para solucionarmos a questão.
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="blocoperguntas col-10 col-xs-10 col-sm-10 col-md-11 col-lg-11 col-xl-11">
+		<div>
+			<a class="btn btn-primary fundo_faqs" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample">
+			<span>Existe garantia de produtos?</span>
+			</a>
+			<div class="collapse" id="collapseExample4">
+				<div class="card card-body">Sim. 30 dias sob as condições de que não seja detectado mau uso.
+						Somente o primeiro frete de retorno é reembolsado pela loja online. </br>A partir do segundo, o frete é de responsabilidade do cliente quando envia um produto de volta, para verificar a garantia.
+				</div>
+			</div>
+		</div>
+		</div>
+
+	@endsection
